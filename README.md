@@ -24,26 +24,62 @@ Thu 20 May, 7.30pm
 
 Fri 21 May, 7.30pm
 
-Design Brainstorming
-Like the idea of using NASA picture of the day - use as a background with translucent/frosted glass containers with information
-Title of "Up-to-date" or "Up2D@te" or "Up2D8"
+## Working practices
 
-Working practices
-Naming conventions - make sure to use kebab case in HTML and CSS and camel case in JS.
-Use GitHub 
+### Naming conventions
+eg make sure to use kebab case in HTML and CSS and camel case in JS (info to go in here)
+
+### GitHub 
   - for each new feature, create a new branch
   - review by at least one other
 
+### Kate is the bossLady
+Kate has awesomely agreed to herd the rest of us cats
 
-5 random people objects with name, location, birthday, country, preferences (favourite sport, 
 
-Kate - high fidelity wireframe
+# DEVELOPMENT JOURNEY NOTES
+
+## Design Brainstorming Part 1
+
+See Disney Design Ideation Trello Board and News App Trello Board
+
+## Design Brainstorming Part 2
+
+Like the idea of using NASA picture of the day - use as a background with translucent/frosted glass containers for text/images etc
+
+Splash Title of "Up-to-date" or "Up2D@te" or "Up2D8"
+
+Use objects with 5 random people examples to store user information to showcase function 
+
+{name:"max 10 characters", 
+
+country: {[select from array?]}
+
+location: "A-Z, a-z",
+
+birthDay: "{[select from array 1 - 31],
+
+birthMonth: {[array of months]}
+
+favourite sport: {[array of sports]},
+ 
+
+
+
+## To do before Weds
+Kate - high fidelity wireframe, Task Trello Board
+
 Merlin - APIs: Twitter, Sport
+
 Becks - APIs: Horoscope, Headlines
+
 Jamie - APIs: Film & TV, Tech
 
 
+## Task List
 Create HTML bare bones
+
 Make objects of "people data"
+
 Create basic get requests for each API
 

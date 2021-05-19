@@ -94,17 +94,16 @@ Create basic get requests for each API
       <li> Functions on top </li>
       <li> Line length < 80 </li>
       <li> camelCase for JS </li>
-      <li> kebab-case for HTML & CSS </li>
       <li> Global and const variables in CAPITALS ? e.g const USERAGE </li>
       <li> Long Objects on multiple lines </li>
-      <li> [JS style guide](https://www.w3schools.com/js/js_conventions.asp) "W3 JS style guide" </li>
+      <li> https://www.w3schools.com/js/js_conventions.asp > W3 JS style guide" </li>
     </ul>
     CSS/HTML
     <ul>
       <li> Use only lowercase </li>
       <li> Use meaningful ID & class names </li>
-      <li> [HTML & CSS Style Guide] (https://www.w3schools.com/html/html5_syntax.asp "W3 coding conventions" )  </li>
-      <li> </li>
+      <li> kebab-case for HTML & CSS </li>
+      <li> https://www.w3schools.com/html/html5_syntax.asp > W3 coding conventions)  </li>
     </ul>
   </ul>
   </details>

@@ -26,9 +26,6 @@ Fri 21 May, 7.30pm
 
 ## Working practices
 
-### Naming conventions
-eg make sure to use kebab case in HTML and CSS and camel case in JS (info to go in here)
-
 ### GitHub 
   - for each new feature, create a new branch
   - review by at least one other
@@ -82,4 +79,21 @@ Create HTML bare bones
 Make objects of "people data"
 
 Create basic get requests for each API
+
+<details open>
+  <summary>Code conventions</summary>
+  <br>
+  ask for help
+  Make code as descriptive as possible. 
+  avoid global variables
+  variable declarations on top. 
+  functions on top
+  line length < 80
+  camelCase for JS
+  kebab-base for HTML & CSS
+  global and const variables in CAPITALS ? e.g const USERAGE
+  long objects on multiple lines 
+ </details
+  
+
 

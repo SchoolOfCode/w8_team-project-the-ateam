@@ -82,7 +82,6 @@ Create basic get requests for each API
 
 <details open>
   <summary>Code conventions</summary>
-  <br>
   <ul>
     <li> Ask for help </li>
     <li> Make code as descriptive as possible.  </li>
@@ -94,7 +93,6 @@ Create basic get requests for each API
       <li> Functions on top </li>
       <li> Line length < 80 </li>
       <li> camelCase for JS </li>
-      <li> Global and const variables in CAPITALS ? e.g const USERAGE </li>
       <li> Long Objects on multiple lines </li>
       <li> https://www.w3schools.com/js/js_conventions.asp > W3 JS style guide" </li>
     </ul>

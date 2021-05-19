@@ -83,16 +83,16 @@ Create basic get requests for each API
 <details open>
   <summary>Code conventions</summary>
   <br>
-  ask for help
-  Make code as descriptive as possible. 
-  avoid global variables
-  variable declarations on top. 
-  functions on top
-  line length < 80
-  camelCase for JS
-  kebab-base for HTML & CSS
-  global and const variables in CAPITALS ? e.g const USERAGE
-  long objects on multiple lines 
+  * Ask for help
+  * Make code as descriptive as possible. 
+  * Avoid global variables
+  * Variable declarations on top
+  * Functions on top
+  * Line length < 80
+  * camelCase for JS
+  * kebab-case for HTML & CSS
+  * Global and const variables in CAPITALS ? e.g const USERAGE
+  * Long Objects on multiple lines
  </details
   
 

@@ -5,7 +5,7 @@ let bingHeadlines = "test";
 const newsAPIKey = "2b579cc8000b4b4ab8cb316fff3abf87";
 let newsFromDate = "2021-05-15"
 let newsCategory = "sports"
-let newsHeadlines = "test";
+let newsHeadlines = fetchNewsHeadlines();
 
 
 var requestOptions = {
@@ -45,12 +45,15 @@ async function fetchBingHeadlines () {
 
 var requestOptions = {
     method: 'GET',
-    redirect: 'follow'
-  };
-  
-async function fetchNewsHeadlines () {
-    let response = await fetch("https://newsapi.org/v2/top-headlines?q=&from=2021-05-15&sortBy=popularity&apiKey=2b579cc8000b4b4ab8cb316fff3abf87&category=sports&country=gb", requestOptions);
-    // this fetch request works in Postman
-    newsHeadlines = await response.json();
-    return newsHeadlines;
+    redirect: 'follow',
+    headers: {
+        'content-type': 'application/json',
+        'X-API-KEY':'2b579cc8000b4b4ab8cb316fff3abf87'},
 }
+
+  
+  async function fetchNewsHeadlines () {
+      let response = await fetch("https://newsapi.org/v2/top-headlines?q=&from=2021-05-15&sortBy=popularity&apiKey=2b579cc8000b4b4ab8cb316fff3abf87&category=sports&country=gb");
+      let newsHeadlines = await response.json();
+      return newsHeadlines;
+    }

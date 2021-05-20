@@ -4,12 +4,6 @@
 // let newsChoices =["", "section=sports", "section=technology", "section=film"];
 // let signChoices = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
 
-// var requestOptions = {
-    //     method: 'GET',
-    //     headers: {
-        //           "Content-Type":"application/json; charset=UTF-8"},
-        //     redirect: 'follow'
-        //   };
         
 async function fetchHoroscope (starsign) {
             let sign = starsign;
@@ -26,10 +20,10 @@ async function fetchHoroscope (starsign) {
             return horoscope;
         }
         
-async function fetchNews(type){ // Technology news
+async function fetchNews(type){ // type = "section=type"
     let guardianApiKey = `ccf9a5bd-5549-4c8f-ae0c-62bfd3938f71`;
     let newsType = type;
-    response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}`);
+    let response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}`);
     let newsItems = await response.json();
     console.log(newsType);
     console.log(newsItems.response.results[0].webTitle);
@@ -37,23 +31,18 @@ async function fetchNews(type){ // Technology news
     return newsItems;
 }
 
-async function fetchTechNews(){ // Technology news
-    let apiLink = `http://content.guardianapis.com/search?section=technology&api-key=${guardianApiKey}`;
-    response = await fetch(apiLink)
-    let technologyArticles = await response.json();
-    return technologyArticles;
-}
-
-async function fetchFilmNews(){ // Film news
-    let apiLink = `http://content.guardianapis.com/search?section=film&api-key=${guardianApiKey}`;
-    response = await fetch(apiLink)
-    let filmArticles = await response.json();
-    return filmArticles;
-}
-
-async function fetchHeadlineNews(){ // Headline news
-    let apiLink = `http://content.guardianapis.com/search?&api-key=${guardianApiKey}`;
-    response = await fetch(apiLink)
-    let headlineArticles = await response.json();
-    return headlineArticles;
+async function fetchWeather (location) {
+    let userLocation = location;
+    let response = await fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${userLocation}&format=json&u=c`, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "c6b7faf605msha0634e3b1f07049p1d0dbdjsn61e10d597152",
+		"x-rapidapi-host": "yahoo-weather5.p.rapidapi.com"
+	}
+})
+    let weather = await response.json();
+    console.log(weather);
+    console.log(weather.current_observation.condition.temperature);
+    console.log(weather.current_observation.condition.text);
+    return weather;
 }

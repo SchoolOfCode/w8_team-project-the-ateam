@@ -29,8 +29,11 @@ async function fetchHoroscope (starsign) {
 async function fetchNews(type){ // Technology news
     let guardianApiKey = `ccf9a5bd-5549-4c8f-ae0c-62bfd3938f71`;
     let newsType = type;
-    response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}`)
+    response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}`);
     let newsItems = await response.json();
+    console.log(newsType);
+    console.log(newsItems.response.results[0].webTitle);
+    console.log(newsItems.response.results[0].webUrl);
     return newsItems;
 }
 

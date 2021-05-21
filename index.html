@@ -5,10 +5,102 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "style.css">
-    <title>Document</title>
+    <title>Up2d8</title>
 </head>
 <body>
-
+    <header>
+        <nav>
+            <!-- google search bar -->
+            <form id="search-bar">
+                <input id="user-search" type="text" />
+                <button type="submit">Search</button>
+            </form>
+            <!-- buttons -->
+            <button id="info-button">Background info</button>
+            <button id="change-user-info-button">Change user info</button>
+        </nav>
+        <h1>Welcome back, </h1>
+    </header>
+    <main>
+        <section id="topics-1">
+            <!-- topics 1 dropdown menu -->
+            <label for="topics-1-dropdown">Choose a topic:</label>
+            <select id="topics-1-dropdown" name="topics-1-dropdown">
+                <option value="headlines">Headlines</option>
+                <option value="sport">Sport</option>
+                <option value="technology">Technology</option>
+                <option value="film">Film</option>
+            </select>
+            <!-- topics 1 headlines -->
+            <ul id="topics-1-headlines"></ul>
+        </section>
+        <section id="topics-2">
+            <!-- topics 2 dropdown menu -->
+            <label for="topics-2-dropdown">Choose a topic:</label>
+            <select id="topics-2-dropdown" name="topics-2-dropdown">
+                <option value="headlines">Headlines</option>
+                <option value="sport">Sport</option>
+                <option value="technology">Technology</option>
+                <option value="film">Film</option>
+            </select>
+            <!-- topics 2 headlines -->
+            <ul id="topics-2-headlines"></ul>
+        </section>
+        <section id="forecast">
+            <!-- forecast dropdown menu -->
+            <label for="forecast-dropdown">Choose a forecast</label>
+            <select id="forecast-dropdown" name="forecast-dropdown">
+                <option value="weather">Weather</option>
+                <option value="horoscope">Horoscope</option>
+            </select>
+            <!-- weather display -->
+            <section id="weather">
+                <img id="weather-icon"/>
+                <p id="temperature"></p>
+                <p id="weather-location"></p>
+            </section>
+            <!-- horoscope display -->
+            <section id="horoscope">
+                <img id="horoscope-icon" />
+                <p id="horoscope-description"></p>
+            </section>
+        </section>
+        <section id="trending">
+            <!-- trending title and refresh -->
+            <button id="refresh" type="button">Trending</button>
+            <ol id="current-trending-topics"></ol>
+        </section>
+    </main>
+    <!-- modal box -->
+    <section id="user-info-box" class="modal">
+        <section class="modal-content">
+            <h2>Change User Info</h2>
+            <form id="change-user-info">
+                <!-- user name input -->
+                <label for="user-name">Name:</label>
+                <input id="user-name" name="user-name" type="text" placeholder="First Name" />
+                <!-- user location input -->
+                <label for="user-location">Location:</label>
+                <input id="user-location" name="user-location" type="text" placeholder="Enter a location" />
+                <label for="user-star-sign">Star Sign:</label>
+                <!-- star sign dropdown menu -->
+                <select id="star-sign-dropdown" name="star-sign-dropdown">
+                    <option value="Aries">Aries</option>
+                    <option value="Taurus">Taurus</option>
+                    <option value="Gemini">Gemini</option>
+                    <option value="Cancer">Cancer</option>
+                    <option value="Leo">Leo</option>
+                    <option value="Virgo">Virgo</option>
+                    <option value="Libra">Libra</option>
+                    <option value="Scorpio">Scorpio</option>
+                    <option value="Sagittarius">Sagittarius</option>
+                    <option value="Capricorn">Capricorn</option>
+                    <option value="Aquarius">Aquarius</option>
+                    <option value="Pisces">Pisces</option>
+                </select>
+            </form>
+        </section>
+    </section>
     <script src = "main.js"></script>
 </body>
 </html>

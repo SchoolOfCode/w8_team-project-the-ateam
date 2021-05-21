@@ -16,15 +16,26 @@ function closeModal() {
 
 // let horoscope = fetchHoroscope();
 // let newsItems = fetchNews();
-// let newsChoices =["", "section=sports", "section=technology", "section=film"];
-// let signChoices = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
-// let userDetails = {
-//     name: "name",
-//     location: "location",
-//     starsign: "starsign"
-// }
-        
-async function fetchHoroscope (sign) {
+let userDetails = {
+    name: "name",
+    location: "wolverhampton",
+    starsign: "gemini"
+}
+
+
+function setUserDetails (event) {
+    event.preventDefault();
+    console.log("buttonjoy");
+    userDetails.name = document.querySelector("#user-name").value;
+    userDetails.location = document.querySelector("#user-location").value;
+    userDetails.starsign = document.querySelector("#star-sign-dropdown").value;
+    console.log(userDetails);
+}
+
+let userDetailsButton = document.getElementById("change-user-info");
+userDetailsButton.addEventListener("submit", setUserDetails);
+
+async function fetchHoroscope () {
             let sign = userDetails.starsign;
             let response = await fetch(`https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=${sign}&day=today`, {
                 "method": "POST",
@@ -50,7 +61,7 @@ async function fetchNews(type){ // type = "section=type"
     return newsItems;
 }
 
-async function fetchWeather (location) {
+async function fetchWeather () {
     let location = userDetails.location;
     let response = await fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${location}&format=json&u=c`, {
 	"method": "GET",

@@ -7,9 +7,9 @@
     <link rel = "stylesheet" href = "style.css">
     <title>Up2d8</title>
 </head>
-<body>
+<body class="flexbox">
     <header>
-        <nav>
+        <nav class="flexbox horizontal">
             <!-- google search bar -->
             <form id="search-bar">
                 <input id="user-search" type="text" />
@@ -21,7 +21,7 @@
         </nav>
         <h1>Welcome back, </h1>
     </header>
-    <main>
+    <main class="flexbox horizontal">
         <section id="topics-1">
             <!-- topics 1 dropdown menu -->
             <label for="topics-1-dropdown">Choose a topic:</label>
@@ -46,36 +46,39 @@
             <!-- topics 2 headlines -->
             <ul id="topics-2-headlines"></ul>
         </section>
-        <section id="forecast">
-            <!-- forecast dropdown menu -->
-            <label for="forecast-dropdown">Choose a forecast</label>
-            <select id="forecast-dropdown" name="forecast-dropdown">
-                <option value="weather">Weather</option>
-                <option value="horoscope">Horoscope</option>
-            </select>
-            <!-- weather display -->
-            <section id="weather">
-                <img id="weather-icon"/>
-                <p id="temperature"></p>
-                <p id="weather-location"></p>
+        <section class="flexbox">
+            <section id="forecast">
+                <!-- forecast dropdown menu -->
+                <label for="forecast-dropdown">Choose a forecast</label>
+                <select id="forecast-dropdown" name="forecast-dropdown">
+                    <option value="weather">Weather</option>
+                    <option value="horoscope">Horoscope</option>
+                </select>
+                <!-- weather display -->
+                <section id="weather">
+                    <img id="weather-icon"/>
+                    <p id="temperature"></p>
+                    <p id="weather-location"></p>
+                </section>
+                <!-- horoscope display -->
+                <section id="horoscope">
+                    <img id="horoscope-icon" />
+                    <p id="horoscope-description"></p>
+                </section>
             </section>
-            <!-- horoscope display -->
-            <section id="horoscope">
-                <img id="horoscope-icon" />
-                <p id="horoscope-description"></p>
+            <section id="trending">
+                <!-- trending title and refresh -->
+                <button id="refresh" type="button">Trending</button>
+                <ol id="current-trending-topics"></ol>
             </section>
-        </section>
-        <section id="trending">
-            <!-- trending title and refresh -->
-            <button id="refresh" type="button">Trending</button>
-            <ol id="current-trending-topics"></ol>
         </section>
     </main>
     <!-- modal box -->
     <section id="user-info-box" class="modal">
-        <section class="modal-content">
+        <section class="modal-content flexbox">
+            <button id="close-modal">&times</button>
             <h2>Change User Info</h2>
-            <form id="change-user-info">
+            <form id="change-user-info" class="flexbox">
                 <!-- user name input -->
                 <label for="user-name">Name:</label>
                 <input id="user-name" name="user-name" type="text" placeholder="First Name" />

@@ -1,3 +1,18 @@
+const userInfoBox = document.querySelector("#user-info-box");
+const userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
+const userInfoBoxCloseButton = document.querySelector("#close-modal");
+
+userInfoBoxOpenButton.addEventListener("click", openModal);
+userInfoBoxCloseButton.addEventListener("click", closeModal);
+
+function openModal() {
+    userInfoBox.style.display = "block";
+}
+function closeModal() {
+    userInfoBox.style.display = "none"
+}
+
+
 
 let horoscope = "";
 let sign = "scorpio";

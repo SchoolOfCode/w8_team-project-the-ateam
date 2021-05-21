@@ -3,10 +3,14 @@
 // let newsItems = fetchNews();
 // let newsChoices =["", "section=sports", "section=technology", "section=film"];
 // let signChoices = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
-
+// let userDetails = {
+//     name: "name",
+//     location: "location",
+//     starsign: "starsign"
+// }
         
-async function fetchHoroscope (starsign) {
-            let sign = starsign;
+async function fetchHoroscope (sign) {
+            let sign = userDetails.starsign;
             let response = await fetch(`https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=${sign}&day=today`, {
                 "method": "POST",
                 "headers": {
@@ -32,8 +36,8 @@ async function fetchNews(type){ // type = "section=type"
 }
 
 async function fetchWeather (location) {
-    let userLocation = location;
-    let response = await fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${userLocation}&format=json&u=c`, {
+    let location = userDetails.location;
+    let response = await fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${location}&format=json&u=c`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "c6b7faf605msha0634e3b1f07049p1d0dbdjsn61e10d597152",

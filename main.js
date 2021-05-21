@@ -75,3 +75,4 @@ async function getRandomNasaBackground() {
     console.log(nasaPicture);
     console.log(nasaPicture.title);
   }
+  getRandomNasaBackground();

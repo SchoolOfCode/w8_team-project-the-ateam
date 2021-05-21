@@ -76,3 +76,29 @@ async function fetchWeather () {
     console.log(weather.current_observation.condition.text);
     return weather;
 }
+
+
+async function getRandomNasaBackground() {
+    const NasaApiKey = "d1I88fYYUtxlURwBFr15pmDXpsIb0sAADqcKSHnh";
+    let nasaBackgrounds = [     // Check over these images later on for sizing, colours etc.
+        "2021-03-01", 
+        "2021-03-08", 
+        "2021-03-23", 
+        "2021-03-30", 
+        "2021-04-07", 
+        "2021-05-05", 
+        "2021-05-11", 
+        "2021-05-13", 
+        "2021-05-19", 
+        "2021-05-21"];
+    let randomNasaBackground = nasaBackgrounds[Math.floor(Math.random()*nasaBackgrounds.length)];
+    let apiLink = `https://api.nasa.gov/planetary/apod?api_key=${NasaApiKey}&date=${randomNasaBackground}`;
+    const nasaResponse = await fetch(apiLink);
+    const nasaPicture = await nasaResponse.json();
+    let imageLink = nasaPicture.url;
+    console.log(imageLink);
+    document.body.style.backgroundImage = `url(${imageLink})`;
+    console.log(nasaPicture);
+    console.log(nasaPicture.title);
+  }
+  getRandomNasaBackground();

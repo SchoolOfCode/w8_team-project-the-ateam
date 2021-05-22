@@ -50,6 +50,13 @@ function setForecastSelection () {
 
 let userDetailsButton = document.getElementById("change-user-info");
 userDetailsButton.addEventListener("submit", setUserDetails);
+let forecastDropdown = document.getElementById("forecast-dropdown");
+forecastDropdown.addEventListener("change", setForecastSelection);
+let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
+newsTopicsDropdown1.addEventListener("change", newsItemsDisplay1);
+let newsTopicsDropdown2 = document.getElementById("topics-2-dropdown");
+newsTopicsDropdown2.addEventListener("change", newsItemsDisplay2);
+
 
 async function fetchHoroscope () {
             let sign = userDetails.starsign;

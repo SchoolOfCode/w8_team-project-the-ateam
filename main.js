@@ -37,6 +37,9 @@ function setUserDetails (event) {
     let heading = document.getElementById("heading");
     heading.innerText = `Welcome back, ${userDetails.name}!`
     console.log(userDetails);
+
+    closeModal();
+    userDetailsButton.reset();
 }
 
 function setForecastSelection () {

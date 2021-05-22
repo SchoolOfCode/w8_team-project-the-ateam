@@ -19,7 +19,9 @@
             <button id="info-button">Background info</button>
             <button id="change-user-info-button">Change user info</button>
         </nav>
-        <h1 id="heading">Welcome back, </h1>
+
+        <h1 id="heading" class="text">Welcome back, </h1>
+
     </header>
     <main class="flexbox horizontal">
         <section id="topics-1">
@@ -75,34 +77,45 @@
     </main>
     <!-- modal box -->
     <section id="user-info-box" class="modal">
-        <section class="modal-content flexbox">
-            <button id="close-modal">&times</button>
-            <h2>Change User Info</h2>
-            <form id="change-user-info" class="flexbox">
-                <!-- user name input -->
-                <label for="user-name">Name:</label>
-                <input id="user-name" name="user-name" type="text" placeholder="First Name" />
-                <!-- user location input -->
-                <label for="user-location">Location:</label>
-                <input id="user-location" name="user-location" type="text" placeholder="Enter a location" />
-                <label for="user-star-sign">Star Sign:</label>
-                <!-- star sign dropdown menu -->
-                <select id="star-sign-dropdown" name="star-sign-dropdown">
-                    <option value="Aries">Aries</option>
-                    <option value="Taurus">Taurus</option>
-                    <option value="Gemini">Gemini</option>
-                    <option value="Cancer">Cancer</option>
-                    <option value="Leo">Leo</option>
-                    <option value="Virgo">Virgo</option>
-                    <option value="Libra">Libra</option>
-                    <option value="Scorpio">Scorpio</option>
-                    <option value="Sagittarius">Sagittarius</option>
-                    <option value="Capricorn">Capricorn</option>
-                    <option value="Aquarius">Aquarius</option>
-                    <option value="Pisces">Pisces</option>
-                </select>
-            </form>
-            <button id="user-details-button" type="submit" form="change-user-info" value="Submit">Submit</button>
+        <section class="modal-with-icon flexbox">
+            <section class="modal-semicircle">
+                <!-- <img class="icon" src="images/user.png"> -->
+            </section>
+            <section class="modal-content flexbox">
+                <button class="btn close" id="close-modal">&times</button>
+                <h2>Change User Info</h2>
+                <form id="change-user-info" class="flexbox">
+                    <!-- user name input -->
+                    <fieldset>
+                        <legend>Name</legend>
+                        <input class="input-box" id="user-name" name="user-name" type="text" placeholder="First Name" />
+                    </fieldset>
+                    <!-- user location input -->
+                    <fieldset>
+                        <legend>Location</legend>
+                        <input class="input-box" id="user-location" name="user-location" type="text" placeholder="Enter a location" />
+                    </fieldset>
+                    <!-- star sign dropdown menu -->
+                    <fieldset>
+                        <legend>Star Sign</legend>
+                        <select class="input-box dropdown" id="star-sign-dropdown" name="star-sign-dropdown">
+                            <option value="Aries">Aries</option>
+                            <option value="Taurus">Taurus</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="Cancer">Cancer</option>
+                            <option value="Leo">Leo</option>
+                            <option value="Virgo">Virgo</option>
+                            <option value="Libra">Libra</option>
+                            <option value="Scorpio">Scorpio</option>
+                            <option value="Sagittarius">Sagittarius</option>
+                            <option value="Capricorn">Capricorn</option>
+                            <option value="Aquarius">Aquarius</option>
+                            <option value="Pisces">Pisces</option>
+                    </select>
+                    </fieldset>
+                </form>
+                <button id="user-details-button" class="btn submit" type="submit" form="change-user-info" value="Submit">Submit</button>
+            </section>
         </section>
     </section>
     <script src = "main.js"></script>

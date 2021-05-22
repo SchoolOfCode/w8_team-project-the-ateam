@@ -83,42 +83,42 @@
     <section id="user-info-box" class="modal">
         <section class="modal-with-icon flexbox">
             <section class="modal-semicircle">
-                <!-- <img class="icon" src="images/user.png"> -->
+                <img class="icon" src="images/user-icon.png">
             </section>
             <section class="modal-content flexbox">
                 <button class="btn close" id="close-modal">&times</button>
                 <h2>Change User Info</h2>
-                <form id="change-user-info" class="flexbox">
+                <form id="change-user-info" class="flexbox form">
                     <!-- user name input -->
-                    <fieldset>
-                        <legend>Name</legend>
+                    <fieldset class= "modal-input">
+                        <legend>name</legend>
                         <input class="input-box" id="user-name" name="user-name" type="text" placeholder="First Name" />
                     </fieldset>
                     <!-- user location input -->
-                    <fieldset>
-                        <legend>Location</legend>
+                    <fieldset class="modal-input">
+                        <legend>location</legend>
                         <input class="input-box" id="user-location" name="user-location" type="text" placeholder="Enter a location" />
                     </fieldset>
                     <!-- star sign dropdown menu -->
-                    <fieldset>
-                        <legend>Star Sign</legend>
+                    <fieldset class="modal-input">
+                        <legend>star sign</legend>
                         <select class="input-box dropdown" id="star-sign-dropdown" name="star-sign-dropdown">
-                            <option value="Aries">Aries</option>
-                            <option value="Taurus">Taurus</option>
-                            <option value="Gemini">Gemini</option>
-                            <option value="Cancer">Cancer</option>
-                            <option value="Leo">Leo</option>
-                            <option value="Virgo">Virgo</option>
-                            <option value="Libra">Libra</option>
-                            <option value="Scorpio">Scorpio</option>
-                            <option value="Sagittarius">Sagittarius</option>
-                            <option value="Capricorn">Capricorn</option>
-                            <option value="Aquarius">Aquarius</option>
-                            <option value="Pisces">Pisces</option>
+                            <option value="Aries">Aries (March 21st - April 20th)</option>
+                            <option value="Taurus">Taurus (April 21st - May 20th)</option>
+                            <option value="Gemini">Gemini (May 21st - June 20th)</option>
+                            <option value="Cancer">Cancer (June 21st - July 22nd)</option>
+                            <option value="Leo">Leo (July 23rd - August 22nd)</option>
+                            <option value="Virgo">Virgo (August 23rd - September 22nd)</option>
+                            <option value="Libra">Libra (September 23rd - October 22nd)</option>
+                            <option value="Scorpio">Scorpio (October 23rd - November 22nd)</option>
+                            <option value="Sagittarius">Sagittarius (November 23rd - December 21st)</option>
+                            <option value="Capricorn">Capricorn (December 22nd - January 19th)</option>
+                            <option value="Aquarius">Aquarius (January 20th - February 19th)</option>
+                            <option value="Pisces">Pisces (February 20th - March 20th)</option>
                     </select>
                     </fieldset>
+                    <button id="user-details-button" class="btn submit" type="submit" form="change-user-info" value="Submit">Submit</button>
                 </form>
-                <button id="user-details-button" class="btn submit" type="submit" form="change-user-info" value="Submit">Submit</button>
             </section>
         </section>
     </section>

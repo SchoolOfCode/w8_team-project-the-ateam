@@ -207,7 +207,7 @@ async function newsItemsDisplay1 () {
    async function horoscopeDisplay () {
       let horoscopeDetails = await fetchHoroscope();
       let horoscopeImage = document.getElementById("horoscope-icon");
-      horoscopeImage.src = `${userDetails.starsign}`;
+      horoscopeImage.src = `/images/${userDetails.starsign}.png`;
       let horoscopeDescription = document.getElementById("horoscope-description");
       horoscopeDescription.innerText = `"${horoscopeDetails.description}"`;
       console.log(horoscopeImage.src);

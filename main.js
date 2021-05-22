@@ -13,14 +13,10 @@ function closeModal() {
     userInfoBox.style.display = "none"
 }
 
-
-
-// let horoscope = fetchHoroscope();
-// let newsItems = fetchNews();
 let userDetails = {
-    name: "name",
-    location: "wolverhampton",
-    starsign: "gemini"
+    name: "friend",
+    location: "Birmingham",
+    starsign: "Aries"
 }
 
 
@@ -28,11 +24,28 @@ function setUserDetails (event) {
     event.preventDefault();
     console.log("buttonjoy");
     userDetails.name = document.querySelector("#user-name").value;
+    userDetails.name = userDetails.name.toLowerCase();
+    let userNameInitialLetter = userDetails.name[0];
+    userNameInitialLetter = userNameInitialLetter.toUpperCase();
+    let validatedUserName = userDetails.name.substring(1);
+    validatedUserName = userNameInitialLetter + validatedUserName;
+    console.log (validatedUserName);
+    userDetails.name = validatedUserName;
+    console.log (userDetails.name);
     userDetails.location = document.querySelector("#user-location").value;
     userDetails.starsign = document.querySelector("#star-sign-dropdown").value;
     let heading = document.getElementById("heading");
     heading.innerText = `Welcome back, ${userDetails.name}!`
     console.log(userDetails);
+}
+
+function setForecastSelection () {
+    let forecastSelection = document.getElementById("forecast-dropdown").value;
+    console.log(forecastSelection);
+    if (forecastSelection === "horoscope") {
+        horoscopeDisplay();
+    }
+    else weatherDisplay();  
 }
 
 let userDetailsButton = document.getElementById("change-user-info");
@@ -213,3 +226,4 @@ async function newsItemsDisplay1 () {
       console.log(horoscopeImage.src);
       console.log(horoscopeDescription);
   }
+

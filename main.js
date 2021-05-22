@@ -1,3 +1,4 @@
+let newsItems;
 const userInfoBox = document.querySelector("#user-info-box");
 const userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
 const userInfoBoxCloseButton = document.querySelector("#close-modal");
@@ -29,6 +30,8 @@ function setUserDetails (event) {
     userDetails.name = document.querySelector("#user-name").value;
     userDetails.location = document.querySelector("#user-location").value;
     userDetails.starsign = document.querySelector("#star-sign-dropdown").value;
+    let heading = document.getElementById("heading");
+    heading.innerText = `Welcome back, ${userDetails.name}!`
     console.log(userDetails);
 }
 
@@ -54,7 +57,7 @@ async function fetchNews(type){ // type = "section=type"
     let guardianApiKey = `ccf9a5bd-5549-4c8f-ae0c-62bfd3938f71`;
     let newsType = type;
     let response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}`);
-    let newsItems = await response.json();
+    newsItems = await response.json();
     console.log(newsType);
     console.log(newsItems.response.results[0].webTitle);
     console.log(newsItems.response.results[0].webUrl);
@@ -102,3 +105,23 @@ async function getRandomNasaBackground() {
     console.log(nasaPicture.title);
   }
   getRandomNasaBackground();
+
+  async function newsItemsDisplay () {
+     newsItems = await fetchNews();
+     let ulTopics1 = document.getElementById("topics-1-headlines");
+     for (let i=0; i<4; i++) {
+         // add section
+         let liSection = document.createElement("section");
+         liSection.classList.add("headline");
+         // add title in section as link
+         let liTitle = document.createElement("a");
+         liTitle.classList.add("link");
+         liTitle.innerText = newsItems.response.results[i].webTitle;
+         liTitle.href = newsItems.response.results[i].webUrl;
+         // create section in DOM
+         ulTopics1.appendChild(liSection);
+         // add section in DOM
+         // NEED TO ADD IMAGES
+         liSection.appendChild(liTitle);
+        }
+     }

@@ -144,7 +144,6 @@ async function getRandomNasaBackground() {
   }
   getRandomNasaBackground();
 
-weather-display
   async function weatherDisplay () {
       let weatherDetails = await fetchWeather();
       let weatherImage = document.getElementById("weather-icon");
@@ -204,3 +203,13 @@ async function newsItemsDisplay1 () {
             newsItemSection.appendChild(newsItemImage);
            }
         }
+
+   async function horoscopeDisplay () {
+      let horoscopeDetails = await fetchHoroscope();
+      let horoscopeImage = document.getElementById("horoscope-icon");
+      horoscopeImage.src = `${userDetails.starsign}`;
+      let horoscopeDescription = document.getElementById("horoscope-description");
+      horoscopeDescription.innerText = `"${horoscopeDetails.description}"`;
+      console.log(horoscopeImage.src);
+      console.log(horoscopeDescription);
+  }

@@ -35,6 +35,15 @@ function setUserDetails (event) {
     console.log(userDetails);
 }
 
+function setForecastSelection () {
+    let forecastSelection = document.getElementById("forecast-dropdown").value;
+    console.log(forecastSelection);
+    if (forecastSelection === "horoscope") {
+        horoscopeDisplay();
+    }
+    else weatherDisplay();  
+}
+
 let userDetailsButton = document.getElementById("change-user-info");
 userDetailsButton.addEventListener("submit", setUserDetails);
 
@@ -213,3 +222,4 @@ async function newsItemsDisplay1 () {
       console.log(horoscopeImage.src);
       console.log(horoscopeDescription);
   }
+

@@ -1,3 +1,4 @@
+let newsItems;
 const userInfoBox = document.querySelector("#user-info-box");
 const userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
 const userInfoBoxCloseButton = document.querySelector("#close-modal");
@@ -29,6 +30,8 @@ function setUserDetails (event) {
     userDetails.name = document.querySelector("#user-name").value;
     userDetails.location = document.querySelector("#user-location").value;
     userDetails.starsign = document.querySelector("#star-sign-dropdown").value;
+    let heading = document.getElementById("heading");
+    heading.innerText = `Welcome back, ${userDetails.name}!`
     console.log(userDetails);
 }
 
@@ -49,15 +52,38 @@ async function fetchHoroscope () {
             console.log(horoscope.description);
             return horoscope;
         }
-        
-async function fetchNews(type){ // type = "section=type"
+  
+async function fetchNewsType1 (){
     let guardianApiKey = `ccf9a5bd-5549-4c8f-ae0c-62bfd3938f71`;
-    let newsType = type;
-    let response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}`);
-    let newsItems = await response.json();
+    let newsTypeSelection = document.getElementById("topics-1-dropdown").value;
+    let newsType = "";
+    if (newsTypeSelection !== "headlines") {
+          newsType = `section=${newsTypeSelection}`;
+        }
+    let response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}&show-fields=thumbnail`);
+    newsItems = await response.json();
+    console.log (response);
     console.log(newsType);
-    console.log(newsItems.response.results[0].webTitle);
-    console.log(newsItems.response.results[0].webUrl);
+    console.log(newsItems);
+    // console.log(newsItems.response.results[0].webTitle);
+    // console.log(newsItems.response.results[0].webUrl);
+    return newsItems;
+}
+
+async function fetchNewsType2 (){
+    let guardianApiKey = `ccf9a5bd-5549-4c8f-ae0c-62bfd3938f71`;
+    let newsTypeSelection = document.getElementById("topics-2-dropdown").value;
+    let newsType = "";
+    if (newsTypeSelection !== "headlines") {
+          newsType = `section=${newsTypeSelection}`;
+        }
+    let response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}&show-fields=thumbnail`);
+    newsItems = await response.json();
+    console.log (response);
+    console.log(newsType);
+    console.log(newsItems);
+    // console.log(newsItems.response.results[0].webTitle);
+    // console.log(newsItems.response.results[0].webUrl);
     return newsItems;
 }
 
@@ -93,15 +119,6 @@ async function fetchWeather () {
     return weather;
 }
 
-
-fetch("https://weatherapi-com.p.rapidapi.com/current.json?q=Paris", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "c6b7faf605msha0634e3b1f07049p1d0dbdjsn61e10d597152",
-		"x-rapidapi-host": "weatherapi-com.p.rapidapi.com"
-	}
-})
-
 async function getRandomNasaBackground() {
     const NasaApiKey = "d1I88fYYUtxlURwBFr15pmDXpsIb0sAADqcKSHnh";
     let nasaBackgrounds = [     // Check over these images later on for sizing, colours etc.
@@ -127,6 +144,7 @@ async function getRandomNasaBackground() {
   }
   getRandomNasaBackground();
 
+weather-display
   async function weatherDisplay () {
       let weatherDetails = await fetchWeather();
       let weatherImage = document.getElementById("weather-icon");
@@ -136,3 +154,53 @@ async function getRandomNasaBackground() {
       console.log(weatherImage.src);
       console.log(weatherTemperature.innerText)
   }
+
+async function newsItemsDisplay1 () {
+     newsItems = await fetchNewsType1();
+     let ulTopics1 = document.getElementById("topics-1-headlines");
+     for (let i=0; i<4; i++) {
+         // add section
+         let newsItemSection = document.createElement("section");
+         newsItemSection.classList.add("headline");
+         // add title in section as link
+         let newsItemTitle = document.createElement("a");
+         newsItemTitle.classList.add("link");
+         newsItemTitle.innerText = newsItems.response.results[i].webTitle;
+         newsItemTitle.href = newsItems.response.results[i].webUrl;
+         // add image in section
+         let newsItemImage = document.createElement("img");
+         newsItemImage.src=newsItems.response.results[i].fields.thumbnail;
+        //  console.log(newsItems.response.results[i].fields.thumbnail)
+         newsItemImage.classList.add("headline-image");
+         // create section in DOM
+         ulTopics1.appendChild(newsItemSection);
+         // add section in DOM
+         newsItemSection.appendChild(newsItemTitle);
+         newsItemSection.appendChild(newsItemImage);
+        }
+     }
+
+     async function newsItemsDisplay2 () {
+        newsItems = await fetchNewsType2();
+        let ulTopics1 = document.getElementById("topics-2-headlines");
+        for (let i=0; i<4; i++) {
+            // add section
+            let newsItemSection = document.createElement("section");
+            newsItemSection.classList.add("headline");
+            // add title in section as link
+            let newsItemTitle = document.createElement("a");
+            newsItemTitle.classList.add("link");
+            newsItemTitle.innerText = newsItems.response.results[i].webTitle;
+            newsItemTitle.href = newsItems.response.results[i].webUrl;
+            // add image in section
+            let newsItemImage = document.createElement("img");
+            newsItemImage.src=newsItems.response.results[i].fields.thumbnail;
+           //  console.log(newsItems.response.results[i].fields.thumbnail)
+            newsItemImage.classList.add("headline-image");
+            // create section in DOM
+            ulTopics1.appendChild(newsItemSection);
+            // add section in DOM
+            newsItemSection.appendChild(newsItemTitle);
+            newsItemSection.appendChild(newsItemImage);
+           }
+        }

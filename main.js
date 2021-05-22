@@ -61,22 +61,46 @@ async function fetchNews(type){ // type = "section=type"
     return newsItems;
 }
 
+// async function fetchWeather () {
+//     let location = userDetails.location;
+//     let response = await fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${location}&format=json&u=c`, {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-key": "c6b7faf605msha0634e3b1f07049p1d0dbdjsn61e10d597152",
+// 		"x-rapidapi-host": "yahoo-weather5.p.rapidapi.com"
+// 	}
+// })
+//     let weather = await response.json();
+//     console.log(weather);
+//     console.log(weather.current_observation.condition.temperature);
+//     console.log(weather.current_observation.condition.text);
+//     return weather;
+// }
+
 async function fetchWeather () {
     let location = userDetails.location;
-    let response = await fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${location}&format=json&u=c`, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "c6b7faf605msha0634e3b1f07049p1d0dbdjsn61e10d597152",
-		"x-rapidapi-host": "yahoo-weather5.p.rapidapi.com"
-	}
-})
+    let response = await fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${location}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "c6b7faf605msha0634e3b1f07049p1d0dbdjsn61e10d597152",
+            "x-rapidapi-host": "weatherapi-com.p.rapidapi.com"
+        }
+    })
     let weather = await response.json();
     console.log(weather);
-    console.log(weather.current_observation.condition.temperature);
-    console.log(weather.current_observation.condition.text);
+    console.log(weather.current.temp_c);
+    console.log(weather.current.condition.icon);
     return weather;
 }
 
+
+fetch("https://weatherapi-com.p.rapidapi.com/current.json?q=Paris", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "c6b7faf605msha0634e3b1f07049p1d0dbdjsn61e10d597152",
+		"x-rapidapi-host": "weatherapi-com.p.rapidapi.com"
+	}
+})
 
 async function getRandomNasaBackground() {
     const NasaApiKey = "d1I88fYYUtxlURwBFr15pmDXpsIb0sAADqcKSHnh";
@@ -102,3 +126,13 @@ async function getRandomNasaBackground() {
     console.log(nasaPicture.title);
   }
   getRandomNasaBackground();
+
+  async function weatherDisplay () {
+      let weatherDetails = await fetchWeather();
+      let weatherImage = document.getElementById("weather-icon");
+      weatherImage.src = `${weatherDetails.current.condition.icon}`;
+      let weatherTemperature = document.getElementById("temperature");
+      weatherTemperature.innerText = `${weatherDetails.current.temp_c}°C`;
+      console.log(weatherImage.src);
+      console.log(weatherTemperature.innerText)
+  }

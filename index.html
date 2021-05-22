@@ -11,18 +11,22 @@
     <header>
         <nav class="flexbox horizontal">
             <!-- google search bar -->
-            <form id="search-bar" action="https://www.google.co.uk/search" target="_blank" method="GET">
-                <input id="user-search" type="text" name="q" placeholder="Google Search">
-                <input type="submit" value="Google Search">
-            </form>
+            <section>
+                <form id="search-bar" action="https://www.google.co.uk/search" target="_blank" method="GET">
+                    <input id="user-search" type="text" name="q">
+                    <input id="search-button" type="image" src="images/search-icon.png" alt="submit icon">
+                </form>
+            </section>
             <!-- buttons -->
-            <button id="info-button">Background info</button>
-            <button id="change-user-info-button">Change user info</button>
+            <section>
+                <input id="info-button" class="nav-btns" type="image" src="images/photo-icon.png" alt="Background image">
+                <input id="change-user-info-button" class="nav-btns" type="image" src="images/user-icon.png" alt="User info button">
+            </section>
         </nav>
         <h1>Welcome back, </h1>
     </header>
     <main class="flexbox horizontal">
-        <section id="topics-1">
+        <section id="topics-1" class="news-column">
             <!-- topics 1 dropdown menu -->
             <label for="topics-1-dropdown">Choose a topic:</label>
             <select id="topics-1-dropdown" name="topics-1-dropdown">
@@ -34,7 +38,7 @@
             <!-- topics 1 headlines -->
             <ul id="topics-1-headlines"></ul>
         </section>
-        <section id="topics-2">
+        <section id="topics-2" class="news-column">
             <!-- topics 2 dropdown menu -->
             <label for="topics-2-dropdown">Choose a topic:</label>
             <select id="topics-2-dropdown" name="topics-2-dropdown">
@@ -47,7 +51,7 @@
             <ul id="topics-2-headlines"></ul>
         </section>
         <section class="flexbox">
-            <section id="forecast">
+            <section id="forecast" class="news-column">
                 <!-- forecast dropdown menu -->
                 <label for="forecast-dropdown">Choose a forecast</label>
                 <select id="forecast-dropdown" name="forecast-dropdown">
@@ -66,7 +70,7 @@
                     <p id="horoscope-description"></p>
                 </section>
             </section>
-            <section id="trending">
+            <section id="trending" class="news-column">
                 <!-- trending title and refresh -->
                 <button id="refresh" type="button">Trending</button>
                 <ol id="current-trending-topics"></ol>

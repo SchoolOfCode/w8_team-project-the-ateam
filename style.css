@@ -1,3 +1,45 @@
+:root {
+    --colour-light-text: #fefefe;
+    --colour-background-box: #0A0A0B;
+}
+
+/* Nav */
+
+nav {
+    margin: 1vh;
+}
+
+h1 {
+    color: white;
+}
+
+#user-search[type=text] {
+    height: 1vh;
+    background: transparent;
+    border: none;
+    color: var(--colour-light-text);
+}
+
+.nav-btns {
+    height: 3vh;
+    margin: 0.5vh;
+}
+
+.nav-btns:hover {
+    opacity: 0.8;
+}
+
+.bottom-search-line {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--colour-light-text);
+}
+
+#search-image {
+    margin: 0.5vh 0.5vh 0 0.5vh;
+    height: 3vh;
+}
+
 body {
     font-family:Arial, Helvetica, sans-serif;
     color: white;
@@ -6,6 +48,7 @@ body {
 .flexbox {
     display: flex;
     flex-direction: column;
+    color: var(--colour-light-text);
 }
 .horizontal {
     flex-direction: row;
@@ -82,4 +125,8 @@ fieldset {
     font-family: Arial, Helvetica, sans-serif;
     color: grey;
 }
-
+.news-column {
+    background-color: magenta;
+    margin: 1vh;
+    padding: 0.5vh;
+    border-radius: 10px;;

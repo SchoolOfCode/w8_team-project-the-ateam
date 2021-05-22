@@ -14,11 +14,10 @@ h1 {
 }
 
 #user-search[type=text] {
-    height: 3vh;
+    height: 1vh;
     background: transparent;
     border: none;
     color: var(--colour-light-text);
-    border-bottom: 2px solid var(--colour-light-text);
 }
 
 .nav-btns {
@@ -30,8 +29,14 @@ h1 {
     opacity: 0.8;
 }
 
-#search-button {
-    margin: 0.5vh;
+.bottom-search-line {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--colour-light-text);
+}
+
+#search-image {
+    margin: 0.5vh 0.5vh 0 0.5vh;
     height: 3vh;
 }
 

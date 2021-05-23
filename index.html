@@ -11,20 +11,20 @@
     <header>
         <nav class="flexbox horizontal">
             <!-- google search bar -->
-            <section class="bottom-search-line">
-                <form id="search-bar" action="https://www.google.co.uk/search" target="_blank" method="GET">
-                    <input id="user-search" type="text" name="q">
-                    <input id="search-image" type="image" src="images/search-icon.png" alt="submit icon">
+            
+                <form id="search-bar" class="search-bar" action="https://www.google.co.uk/search" target="_blank" method="GET">
+                    <input id="user-search" class="search-bar-input" type="text" name="q" autocomplete="off">
+                    <input id="search-image" class="btn" type="image" src="images/search-icon.png" alt="submit icon">
                 </form>
-            </section>
+          
             <!-- buttons -->
-            <section>
-                <input id="info-button" class="nav-btns" type="image" src="images/photo-icon.png" alt="Background image">
-                <input id="change-user-info-button" class="nav-btns" type="image" src="images/user-icon.png" alt="User info button">
+            <section class="nav-buttons">
+                <input id="info-button" class=" btn nav-btn" type="image" src="images/photo-icon.png" alt="Background image">
+                <input id="change-user-info-button" class="btn nav-btn" type="image" src="images/user-icon.png" alt="User info button">
             </section>
         </nav>
 
-        <h1 id="heading" class="text">Welcome back, </h1>
+        <h1 id="heading" class="text text-shadow">Welcome back, Friend</h1>
 
         
     </header>
@@ -43,8 +43,8 @@
         <section class="flexbox horizontal columns">
             <section id="topics-1" class="news-column">
             <!-- topics 1 dropdown menu -->
-            <fieldset class="column-input">
-                <legend>topic</legend>
+            <fieldset class="column-input box-shadow">
+                <legend class="text-shadow">topic</legend>
                 <select class="input-box dropdown" id="topics-1-dropdown" name="topics-1-dropdown">
                     <option value="null" selected disabled>Select</option>
                     <option value="headlines">Headlines</option>
@@ -56,10 +56,10 @@
             <!-- topics 1 headlines -->
             <ul id="topics-1-headlines"></ul>
         </section>
-        <section id="topics-2" class="news-column">
+        <section id="topics-2" class="news-column box-shadow">
             <!-- topics 2 dropdown menu -->
-            <fieldset class="column-input">
-                <legend>topic</legend>
+            <fieldset class="column-input box-shadow">
+                <legend class="text-shadow">topic</legend>
                 <select class="input-box dropdown" id="topics-2-dropdown" name="topics-2-dropdown">
                     <option value="null" selected disabled>Select</option>
                     <option value="headlines">Headlines</option>
@@ -72,10 +72,10 @@
             <ul id="topics-2-headlines"></ul>
         </section>
         <section class="flexbox">
-            <section id="forecast" class="news-column">
+            <section id="forecast" class="news-column box-shadow">
                 <!-- forecast dropdown menu -->
-                <fieldset class="column-input">
-                    <legend>forecast</legend>
+                <fieldset class="column-input box-shadow">
+                    <legend class="text-shadow">forecast</legend>
                     <select class="input-box dropdown" id="forecast-dropdown" name="forecast-dropdown">
                         <option value="weather">Weather</option>
                         <option value="horoscope">Horoscope</option>
@@ -93,9 +93,9 @@
                     <p id="horoscope-description"></p>
                 </section>
             </section>
-            <section id="trending" class="news-column">
+            <section id="trending" class="news-column box-shadow">
                 <!-- trending title and refresh -->
-                <fieldset>
+                <fieldset class="box-shadow">
                     <!-- <legend></legend> -->
                     <button class="submit" id="refresh" type="button">Trending</button>
                 </fieldset>
@@ -110,23 +110,23 @@
             <section class="modal-semicircle">
                 <img class="icon bounce-in-top" src="images/user-icon.png">
             </section>
-            <section class="modal-content flexbox">
-                <button class="btn close" id="close-modal">&times</button>
-                <h2 class="puff-in-center">Change User Info</h2>
+            <section class="modal-content flexbox box-shadow">
+                <button class="btn close text-shadow" id="close-modal">&times</button>
+                <h2 class="puff-in-center text-shadow">Change User Info</h2>
                 <form id="change-user-info" class="flexbox form puff-in-center">
                     <!-- user name input -->
-                    <fieldset class= "modal-input">
-                        <legend>name</legend>
+                    <fieldset class= "modal-input box-shadow">
+                        <legend class="text-shadow">name</legend>
                         <input class="input-box" id="user-name" name="user-name" type="text" placeholder="First Name" />
                     </fieldset>
                     <!-- user location input -->
-                    <fieldset class="modal-input">
-                        <legend>location</legend>
+                    <fieldset class="modal-input box-shadow">
+                        <legend class="text-shadow">location</legend>
                         <input class="input-box" id="user-location" name="user-location" type="text" placeholder="Enter a location" />
                     </fieldset>
                     <!-- star sign dropdown menu -->
-                    <fieldset class="modal-input">
-                        <legend>star sign</legend>
+                    <fieldset class="modal-input box-shadow">
+                        <legend class="text-shadow">star sign</legend>
                         <select class="input-box dropdown" id="star-sign-dropdown" name="star-sign-dropdown">
                             <option value="Aries">Aries (March 21st - April 20th)</option>
                             <option value="Taurus">Taurus (April 21st - May 20th)</option>
@@ -142,7 +142,7 @@
                             <option value="Pisces">Pisces (February 20th - March 20th)</option>
                     </select>
                     </fieldset>
-                    <button id="user-details-button" class="btn submit modal-submit" type="submit" form="change-user-info" value="Submit">Submit</button>
+                    <button id="user-details-button" class="btn submit modal-submit box-shadow" type="submit" form="change-user-info" value="Submit">Submit</button>
                 </form>
             </section>
         </section>

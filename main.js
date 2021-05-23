@@ -74,6 +74,7 @@ function setUserDetails (event) {
     heading.innerText = `Welcome back, ${userDetails.name}!`
     closeModal();
     userDetailsButton.reset();
+    userInfoBoxOpenButton.classList.remove("heartbeat");
     weatherDisplay();
 }
 

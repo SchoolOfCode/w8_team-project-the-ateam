@@ -9,8 +9,8 @@ console.log(date);
 let newsItems;
 let newsTopicsDropdown2 = document.getElementById("topics-2-dropdown");
 let newsTypeSelection = "headlines";
-let DropDownContainerId;
-let DropDownSelection;
+let dropDownContainerId;
+let dropDownSelection;
 let weatherImage = document.getElementById("weather-icon");
 let weatherTemperature = document.getElementById("temperature");
 let weatherLocation = document.getElementById("weather-location");
@@ -35,15 +35,18 @@ forecastDropdown.addEventListener("change", setForecastSelection);
 newsTopicsDropdown1.addEventListener("change", handleDropDown1Change);
 newsTopicsDropdown2.addEventListener("change", handleDropDown2Change);
 
+pageLoad();
+
 // PAGE LOAD
+
 function pageLoad () {
     weatherDisplay();
     displayBreakingNews();
-    // add default news display
+    handleDropDown1Change();
+    handleDropDown2Change();
+    getRandomNasaBackground();
     // add twitter trending topics display
 }
-pageLoad();
-getRandomNasaBackground();
 
 // USER INPUT FUNCTIONS
 function openModal() {
@@ -85,14 +88,14 @@ function setForecastSelection () {
 }
 
 function handleDropDown1Change (){
-    DropDownSelection = "topics-1-dropdown";
-    DropDownContainerId = "topics-1-headlines";
+    dropDownSelection = "topics-1-dropdown";
+    dropDownContainerId = "topics-1-headlines";
     newsItemsDisplay();
 }
 
 function handleDropDown2Change (){
-    DropDownSelection = "topics-2-dropdown";
-    DropDownContainerId = "topics-2-headlines";
+    dropDownSelection = "topics-2-dropdown";
+    dropDownContainerId = "topics-2-headlines";
     newsItemsDisplay();
 }
 
@@ -123,7 +126,7 @@ async function fetchHoroscope () {
   
 async function fetchNewsType (){
     let guardianApiKey = `ccf9a5bd-5549-4c8f-ae0c-62bfd3938f71`;
-    newsTypeSelection = document.getElementById(`${DropDownSelection}`).value;
+    newsTypeSelection = document.getElementById(`${dropDownSelection}`).value;
     let newsType = "";
     if (newsTypeSelection !== "headlines") {
           newsType = `section=${newsTypeSelection}`;
@@ -193,10 +196,10 @@ async function weatherDisplay () {
   }
 
 async function newsItemsDisplay () {
-     let ulTopics = document.getElementById(`${DropDownContainerId}`);
+     let ulTopics = document.getElementById(`${dropDownContainerId}`);
      ulTopics.innerHTML = "";
      newsItems = await fetchNewsType();
-     for (let i=0; i<4; i++) {
+         for (let i=0; i<4; i++) {
          let newsItemSection = document.createElement("section");
          newsItemSection.classList.add("headline");
          let newsItemTitle = document.createElement("a");

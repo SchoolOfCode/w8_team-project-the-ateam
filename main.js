@@ -177,18 +177,22 @@ async function getRandomNasaBackground() {
 
 async function displayBreakingNews () {
     let breakingNewsItems = await fetchBreakingNews();
+    console.log(breakingNewsItems);
     let breakingNewsSection = document.getElementById("breaking-news");
     for (i=0; i<10; i++) {
-      breakingNewsDiv = document.createElement("div");
-      breakingNewsDiv.classList.add("ticker-item");
-      breakingNewsTitle = document.createElement("a");
-      breakingNewsTitle.classList.add("link");
-      breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
-      breakingNewsTitle.href = breakingNewsItems.data[i].url;
-      breakingNewsTitle.target="_blank";
-      breakingNewsSection.appendChild(breakingNewsDiv);
-      breakingNewsDiv.appendChild(breakingNewsTitle);
-    }
+        console.log(breakingNewsItems.data[i].title)
+        if (breakingNewsItems.data[i].title !== breakingNewsItems.data[i+1].title){
+         breakingNewsDiv = document.createElement("div");
+         breakingNewsDiv.classList.add("ticker-item");
+         breakingNewsTitle = document.createElement("a");
+         breakingNewsTitle.classList.add("link");
+         breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
+         breakingNewsTitle.href = breakingNewsItems.data[i].url;
+         breakingNewsTitle.target="_blank";
+         breakingNewsSection.appendChild(breakingNewsDiv);
+         breakingNewsDiv.appendChild(breakingNewsTitle);
+       }
+     }
   }
   
 async function weatherDisplay () {

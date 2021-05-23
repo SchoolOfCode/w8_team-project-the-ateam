@@ -25,9 +25,22 @@
         </nav>
 
         <h1 id="heading" class="text">Welcome back, </h1>
-    <section id="breaking-news" class="news-column"></section>
+
+        
     </header>
-    <main class="flexbox horizontal">
+    <main class="flexbox">
+        <!-- breaking news ticker -->
+        <fieldset class="ticker-border">
+            <legend>bbc breaking news</legend>
+            <section class="tcontainer">
+                <section class="ticker-wrap">
+                <section  id="breaking-news" class="ticker-move">
+                </section>
+                </section>
+            </section>
+        </fieldset>
+        <!-- news columns -->
+        <section class="flexbox horizontal columns">
             <section id="topics-1" class="news-column">
             <!-- topics 1 dropdown menu -->
             <fieldset class="column-input">
@@ -88,6 +101,7 @@
                 </fieldset>
                 <ol id="current-trending-topics"></ol>
             </section>
+        </section>
         </section>
     </main>
     <!-- modal box -->

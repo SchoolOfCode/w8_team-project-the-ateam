@@ -34,6 +34,7 @@ newsTopicsDropdown2.addEventListener("change", handleDropDown2Change);
 // PAGE LOAD
 function pageLoad () {
     weatherDisplay();
+    displayBreakingNews();
     // add default news display
     // add twitter trending topics display
 }
@@ -92,6 +93,15 @@ function handleDropDown2Change (){
 }
 
 // FETCH REQUESTS
+async function fetchBreakingNews () {
+    let response = await fetch("http://api.mediastack.com/v1/news?access_key=d2e7cd704c760008100066b1a3258c3e&countries=gb&date=2021-05-23&sources=bbc", {
+      method: 'GET',
+      redirect: 'follow'
+    })
+    let breakingNews = await response.json();
+    return breakingNews;
+}
+
 async function fetchHoroscope () {
     let sign = userDetails.starsign;
     let response = await fetch(`https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=${sign}&day=today`, {
@@ -115,7 +125,6 @@ async function fetchNewsType (){
         }
     let response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}&show-fields=thumbnail`);
     newsItems = await response.json();
-    console.log(newsItems);
     return newsItems;
 }
 
@@ -152,6 +161,22 @@ async function getRandomNasaBackground() {
     const nasaPicture = await nasaResponse.json();
     let imageLink = nasaPicture.url;
     document.body.style.backgroundImage = `url(${imageLink})`;
+  }
+
+async function displayBreakingNews () {
+    let breakingNewsItems = await fetchBreakingNews();
+    let breakingNewsSection = document.getElementById("breaking-news");
+    for (i=0; i<10; i++) {
+      breakingNewsDiv = document.createElement("div");
+      breakingNewsDiv.classList.add("ticker-item");
+      breakingNewsTitle = document.createElement("a");
+      breakingNewsTitle.classList.add("link");
+      breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
+      breakingNewsTitle.href = breakingNewsItems.data[i].url;
+      breakingNewsTitle.target="_blank";
+      breakingNewsSection.appendChild(breakingNewsDiv);
+      breakingNewsDiv.appendChild(breakingNewsTitle);
+    }
   }
   
 async function weatherDisplay () {

@@ -30,36 +30,44 @@
     <main class="flexbox horizontal">
         <section id="topics-1" class="news-column">
             <!-- topics 1 dropdown menu -->
-            <label for="topics-1-dropdown">Choose a topic:</label>
-            <select id="topics-1-dropdown" name="topics-1-dropdown">
-                <option value="headlines">Headlines</option>
-                <option value="sport">Sport</option>
-                <option value="technology">Technology</option>
-                <option value="film">Film</option>
-            </select>
+            <fieldset class="column-input">
+                <legend>topic</legend>
+                <select class="input-box dropdown" id="topics-1-dropdown" name="topics-1-dropdown">
+                    <option value="null" selected disabled>Select</option>
+                    <option value="headlines">Headlines</option>
+                    <option value="sport">Sport</option>
+                    <option value="technology">Technology</option>
+                    <option value="film">Film</option>
+                </select>
+            </fieldset>
             <!-- topics 1 headlines -->
             <ul id="topics-1-headlines"></ul>
         </section>
         <section id="topics-2" class="news-column">
             <!-- topics 2 dropdown menu -->
-            <label for="topics-2-dropdown">Choose a topic:</label>
-            <select id="topics-2-dropdown" name="topics-2-dropdown">
-                <option value="headlines">Headlines</option>
-                <option value="sport">Sport</option>
-                <option value="technology">Technology</option>
-                <option value="film">Film</option>
-            </select>
+            <fieldset class="column-input">
+                <legend>topic</legend>
+                <select class="input-box dropdown" id="topics-2-dropdown" name="topics-2-dropdown">
+                    <option value="null" selected disabled>Select</option>
+                    <option value="headlines">Headlines</option>
+                    <option value="sport">Sport</option>
+                    <option value="technology">Technology</option>
+                    <option value="film">Film</option>
+                </select>
+            </fieldset>
             <!-- topics 2 headlines -->
             <ul id="topics-2-headlines"></ul>
         </section>
         <section class="flexbox">
             <section id="forecast" class="news-column">
                 <!-- forecast dropdown menu -->
-                <label for="forecast-dropdown">Choose a forecast</label>
-                <select id="forecast-dropdown" name="forecast-dropdown">
-                    <option value="weather">Weather</option>
-                    <option value="horoscope">Horoscope</option>
-                </select>
+                <fieldset class="column-input">
+                    <legend>forecast</legend>
+                    <select class="input-box dropdown" id="forecast-dropdown" name="forecast-dropdown">
+                        <option value="weather">Weather</option>
+                        <option value="horoscope">Horoscope</option>
+                    </select>
+                </fieldset>
                 <!-- weather display -->
                 <section id="weather">
                     <img id="weather-icon"/>
@@ -74,21 +82,24 @@
             </section>
             <section id="trending" class="news-column">
                 <!-- trending title and refresh -->
-                <button id="refresh" type="button">Trending</button>
+                <fieldset>
+                    <!-- <legend></legend> -->
+                    <button class="submit" id="refresh" type="button">Trending</button>
+                </fieldset>
                 <ol id="current-trending-topics"></ol>
             </section>
         </section>
     </main>
     <!-- modal box -->
-    <section id="user-info-box" class="modal">
+    <section id="user-info-box" class="modal fade-in">
         <section class="modal-with-icon flexbox">
             <section class="modal-semicircle">
-                <img class="icon" src="images/user-icon.png">
+                <img class="icon bounce-in-top" src="images/user-icon.png">
             </section>
             <section class="modal-content flexbox">
                 <button class="btn close" id="close-modal">&times</button>
-                <h2>Change User Info</h2>
-                <form id="change-user-info" class="flexbox form">
+                <h2 class="puff-in-center">Change User Info</h2>
+                <form id="change-user-info" class="flexbox form puff-in-center">
                     <!-- user name input -->
                     <fieldset class= "modal-input">
                         <legend>name</legend>
@@ -117,7 +128,7 @@
                             <option value="Pisces">Pisces (February 20th - March 20th)</option>
                     </select>
                     </fieldset>
-                    <button id="user-details-button" class="btn submit" type="submit" form="change-user-info" value="Submit">Submit</button>
+                    <button id="user-details-button" class="btn submit modal-submit" type="submit" form="change-user-info" value="Submit">Submit</button>
                 </form>
             </section>
         </section>

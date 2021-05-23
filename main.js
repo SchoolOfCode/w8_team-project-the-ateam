@@ -4,6 +4,8 @@ let userDetails = {
     location: "Birmingham",
     starsign: "Aries"
 }
+let date = new Date().toISOString().slice(0,10);
+console.log(date);
 let newsItems;
 let newsTopicsDropdown2 = document.getElementById("topics-2-dropdown");
 let newsTypeSelection = "headlines";
@@ -96,11 +98,12 @@ function handleDropDown2Change (){
 
 // FETCH REQUESTS
 async function fetchBreakingNews () {
-    let response = await fetch("http://api.mediastack.com/v1/news?access_key=d2e7cd704c760008100066b1a3258c3e&countries=gb&date=2021-05-23&sources=bbc", {
+    let response = await fetch(`http://api.mediastack.com/v1/news?access_key=d2e7cd704c760008100066b1a3258c3e&countries=gb&${date}&sources=bbc`, {
       method: 'GET',
       redirect: 'follow'
     })
     let breakingNews = await response.json();
+    console.log(breakingNews);
     return breakingNews;
 }
 

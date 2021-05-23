@@ -22,8 +22,9 @@ body {
         color: white;
 }
 .columns {
-        width: 100%;
-        justify-content: space-evenly;
+        width: 70vw;
+        align-self: center;
+        justify-content:space-between;
         
 }
 h1 {
@@ -131,7 +132,7 @@ h1 {
 .news-column {
         background-color:rgba(255,255,255,0.3);
         backdrop-filter: blur(1px);
-        width:250px;
+        width:20vw;
         margin-top: 50px;
         border-radius: 10px;
 }
@@ -222,7 +223,7 @@ input:-webkit-autofill:active {
 /* border */
 .ticker-border {
         align-self: center;
-        width: 60vw;
+        width: 67vw;
         margin: 0vw 8vw 0vw 8vw;
         background-color:rgba(255,255,255,0.3);
         backdrop-filter: blur(1px);
@@ -230,7 +231,7 @@ input:-webkit-autofill:active {
 
 /* OUTER CONTAINER */
 .tcontainer {
-        width: 60vw;
+        width: 67vw;
         height: 5vh;
         overflow: hidden;
         border-radius: 10px;

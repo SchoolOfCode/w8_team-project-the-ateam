@@ -279,6 +279,11 @@ input:-webkit-autofill:active {
 }     
 
 /* NEWS ITEMS */
-ul image {
+.headline > a {
+align-items: center;
+border: 2px solid hotpink;
+}
 
+.link > img {
+max-width: 100%;
 }

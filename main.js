@@ -69,12 +69,17 @@ function setUserDetails (event) {
     validatedUserName = userNameInitialLetter + validatedUserName;
     userDetails.name = validatedUserName;
     userDetails.location = document.querySelector("#user-location").value;
+    if (userDetails.location === "") {
+        userDetails.location = "Birmingham";
+     }
     userDetails.starsign = document.querySelector("#star-sign-dropdown").value;
     let heading = document.getElementById("heading");
     heading.innerText = `Welcome back, ${userDetails.name}!`
     closeModal();
     userDetailsButton.reset();
-    userInfoBoxOpenButton.classList.remove("heartbeat");
+    if (userDetails.name === "friend") {
+     userInfoBoxOpenButton.classList.remove("heartbeat");
+     }
     weatherDisplay();
 }
 

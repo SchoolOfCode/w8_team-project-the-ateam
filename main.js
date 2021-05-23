@@ -34,6 +34,7 @@ newsTopicsDropdown2.addEventListener("change", handleDropDown2Change);
 // PAGE LOAD
 function pageLoad () {
     weatherDisplay();
+    displayBreakingNews();
     // add default news display
     // add twitter trending topics display
 }
@@ -98,7 +99,6 @@ async function fetchBreakingNews () {
       redirect: 'follow'
     })
     let breakingNews = await response.json();
-    console.log(breakingNews);
     return breakingNews;
 }
 
@@ -125,7 +125,6 @@ async function fetchNewsType (){
         }
     let response = await fetch(`http://content.guardianapis.com/search?${newsType}&api-key=${guardianApiKey}&show-fields=thumbnail`);
     newsItems = await response.json();
-    console.log(newsItems);
     return newsItems;
 }
 
@@ -173,6 +172,7 @@ async function displayBreakingNews () {
       breakingNewsTitle = document.createElement("a");
       breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
       breakingNewsTitle.href = breakingNewsItems.data[i].url;
+      breakingNewsTitle.target="_blank";
       breakingNewsSection.appendChild(breakingNewsDiv);
       breakingNewsDiv.appendChild(breakingNewsTitle);
     }

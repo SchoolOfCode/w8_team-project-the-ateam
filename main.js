@@ -77,7 +77,7 @@ function setUserDetails (event) {
     heading.innerText = `Welcome back, ${userDetails.name}!`
     closeModal();
     userDetailsButton.reset();
-    if (userDetails.name === "friend") {
+    if (userDetails.name !== "Friend") {
      userInfoBoxOpenButton.classList.remove("heartbeat");
      }
     weatherDisplay();

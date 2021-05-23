@@ -19,7 +19,6 @@ let userDetails = {
     starsign: "Aries"
 }
 
-
 function setUserDetails (event) {
     event.preventDefault();
     console.log("buttonjoy");
@@ -39,6 +38,12 @@ function setUserDetails (event) {
     console.log(userDetails);
 }
 
+function pageLoad () {
+    weatherDisplay();
+    }
+
+pageLoad();
+
 function setForecastSelection () {
     let forecastSelection = document.getElementById("forecast-dropdown").value;
     console.log(forecastSelection);
@@ -56,8 +61,9 @@ let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 newsTopicsDropdown1.addEventListener("change", handleDropDown1Change);
 let newsTopicsDropdown2 = document.getElementById("topics-2-dropdown");
 newsTopicsDropdown2.addEventListener("change", handleDropDown2Change);
-// let newsTypeSelection = "headlines";
-let DropDownContainerId = "";
+let newsTypeSelection = "headlines";
+let DropDownContainerId;
+let DropDownSelection;
 
 function handleDropDown1Change (){
     DropDownSelection = "topics-1-dropdown";
@@ -89,7 +95,7 @@ async function fetchHoroscope () {
 async function fetchNewsType (){
     console.log ("fetch request");
     let guardianApiKey = `ccf9a5bd-5549-4c8f-ae0c-62bfd3938f71`;
-    let newsTypeSelection = document.getElementById(`${DropDownSelection}`).value;
+    newsTypeSelection = document.getElementById(`${DropDownSelection}`).value;
     console.log(DropDownContainerId);
     console.log(newsTypeSelection);
     let newsType = "";
@@ -145,6 +151,7 @@ async function getRandomNasaBackground() {
     console.log(nasaPicture);
     console.log(nasaPicture.title);
   }
+  
   getRandomNasaBackground();
 
   async function weatherDisplay () {
@@ -153,8 +160,8 @@ async function getRandomNasaBackground() {
       weatherImage.src = `${weatherDetails.current.condition.icon}`;
       let weatherTemperature = document.getElementById("temperature");
       weatherTemperature.innerText = `${weatherDetails.current.temp_c}°C`;
-      console.log(weatherImage.src);
-      console.log(weatherTemperature.innerText)
+      let weatherLocation = document.getElementById("weather-location");
+      weatherLocation.innerText = `${weatherDetails.location.name}`;
   }
 
 async function newsItemsDisplay () {

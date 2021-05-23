@@ -34,9 +34,11 @@ newsTopicsDropdown2.addEventListener("change", handleDropDown2Change);
 // PAGE LOAD
 function pageLoad () {
     weatherDisplay();
+    // add default news display
+    // add twitter trending topics display
 }
-
 pageLoad();
+getRandomNasaBackground();
 
 // USER INPUT FUNCTIONS
 function openModal() {
@@ -152,9 +154,7 @@ async function getRandomNasaBackground() {
     document.body.style.backgroundImage = `url(${imageLink})`;
   }
   
-  getRandomNasaBackground();
-
-  async function weatherDisplay () {
+async function weatherDisplay () {
       clearHoroscopeDisplay();
       let weatherDetails = await fetchWeather();
       weatherImage.src = `${weatherDetails.current.condition.icon}`;
@@ -163,8 +163,9 @@ async function getRandomNasaBackground() {
   }
 
 async function newsItemsDisplay () {
+     let ulTopics = document.getElementById(`${DropDownContainerId}`);
+     ulTopics.innerHTML = "";
      newsItems = await fetchNewsType();
-     let ulTopics1 = document.getElementById(`${DropDownContainerId}`);
      for (let i=0; i<4; i++) {
          let newsItemSection = document.createElement("section");
          newsItemSection.classList.add("headline");
@@ -175,7 +176,7 @@ async function newsItemsDisplay () {
          let newsItemImage = document.createElement("img");
          newsItemImage.src=newsItems.response.results[i].fields.thumbnail;
          newsItemImage.classList.add("headline-image");
-         ulTopics1.appendChild(newsItemSection);
+         ulTopics.appendChild(newsItemSection);
          newsItemSection.appendChild(newsItemTitle);
          newsItemSection.appendChild(newsItemImage);
         }

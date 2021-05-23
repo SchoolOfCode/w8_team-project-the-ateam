@@ -5,7 +5,6 @@ let userDetails = {
     starsign: "Aries"
 }
 let date = new Date().toISOString().slice(0,10);
-console.log(date);
 let newsItems;
 let newsTopicsDropdown2 = document.getElementById("topics-2-dropdown");
 let newsTypeSelection = "headlines";
@@ -106,7 +105,6 @@ async function fetchBreakingNews () {
       redirect: 'follow'
     })
     let breakingNews = await response.json();
-    console.log(breakingNews);
     return breakingNews;
 }
 

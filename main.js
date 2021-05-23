@@ -173,6 +173,7 @@ async function newsItemsDisplay () {
          newsItemTitle.classList.add("link");
          newsItemTitle.innerText = newsItems.response.results[i].webTitle;
          newsItemTitle.href = newsItems.response.results[i].webUrl;
+         newsItemTitle.target="_blank";
          let newsItemImage = document.createElement("img");
          newsItemImage.src=newsItems.response.results[i].fields.thumbnail;
          newsItemImage.classList.add("headline-image");

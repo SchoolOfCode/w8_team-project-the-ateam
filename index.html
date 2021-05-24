@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "style.css">
-    <link rel = "stylesheet" href = "animations.css">
     <title>Up2d8</title>
 </head>
 <body class="flexbox">
@@ -18,9 +17,8 @@
                 </form>
             <!-- buttons -->
             <section class="nav-buttons">
-
                 <input id="background-image-button" class=" btn nav-btn" type="image" src="images/photo-icon.png" alt="Background image">
-                <input id="change-user-info-button" class="btn nav-btn heartbeat" type="image" src="images/user-icon.png" alt="User info button">
+                <input id="change-user-info-button" class="btn nav-btn" type="image" src="images/user-icon.png" alt="User info button">
             </section>
         </nav>
         <h1 id="heading" class="text text-shadow">Welcome back, Friend</h1>
@@ -42,11 +40,11 @@
             <fieldset class="column-input box-shadow">
                 <legend class="text-shadow">topic</legend>
                 <select class="input-box dropdown" id="topics-1-dropdown" name="topics-1-dropdown">
-                    <option value="world" selected disabled>Select</option>
+                    <option value="null" selected disabled>Select</option>
                     <option value="headlines">Headlines</option>
-                    <option value="politics">Politics</option>
-                    <option value="business">Business</option>
+                    <option value="sport">Sport</option>
                     <option value="technology">Technology</option>
+                    <option value="film">Film</option>
                 </select>
             </fieldset>
             <!-- topics 1 headlines -->
@@ -57,10 +55,10 @@
             <fieldset class="column-input box-shadow">
                 <legend class="text-shadow">topic</legend>
                 <select class="input-box dropdown" id="topics-2-dropdown" name="topics-2-dropdown">
-                    <option value="culture" selected disabled>Select</option>
+                    <option value="null" selected disabled>Select</option>
+                    <option value="headlines">Headlines</option>
                     <option value="sport">Sport</option>
-                    <option value="football">Football</option>
-                    <option value="music">Music</option>
+                    <option value="technology">Technology</option>
                     <option value="film">Film</option>
                 </select>
             </fieldset>
@@ -84,14 +82,10 @@
                     <p id="weather-location"></p>
                 </section>
                 <!-- horoscope display -->
-              
-        <section id="horoscope" class="flexbox  horoscope-card">
-                    <section class="flexbox horizontal horoscope-header">
-                        <img id="horoscope-icon" class="horoscope-icon"/>
-                        <h3 id="horoscope-title" class="horoscope-title"></h3>
-                    </section>
-                    <p id="horoscope-description" class="horoscope-text"></p>
-         </section>
+                <section id="horoscope">
+                    <img id="horoscope-icon"/>
+                    <p id="horoscope-description"></p>
+                </section>
             </section>
             <section id="trending" class="news-column box-shadow">
                 <!-- trending title and refresh -->
@@ -117,7 +111,7 @@
                     <!-- user name input -->
                     <fieldset class= "modal-input box-shadow">
                         <legend class="text-shadow">name</legend>
-                        <input class="input-box" id="user-name" name="user-name" type="text" placeholder="First Name" maxlength ="10"/>
+                        <input class="input-box" id="user-name" name="user-name" type="text" placeholder="First Name" />
                     </fieldset>
                     <!-- user location input -->
                     <fieldset class="modal-input box-shadow">

@@ -15,6 +15,7 @@ let weatherTemperature = document.getElementById("temperature");
 let weatherLocation = document.getElementById("weather-location");
 let horoscopeImage = document.getElementById("horoscope-icon");
 let horoscopeDescription = document.getElementById("horoscope-description");
+let horoscopeTitle = document.getElementById("horoscope-title");
 
 // DOM VARIABLES
 let backgroundImageChange = document.getElementById("info-button");
@@ -229,8 +230,9 @@ async function newsItemsDisplay () {
 async function horoscopeDisplay () {
     clearWeatherDisplay();
     let horoscopeDetails = await fetchHoroscope();
-    horoscopeImage.src = `/images/${userDetails.starsign}.png`;
+    horoscopeImage.src = `images/${userDetails.starsign}.png`;
     horoscopeDescription.innerText = `"${horoscopeDetails.description}"`;  
+    horoscopeTitle.innerText = userDetails.starsign;
   }
 
 function clearWeatherDisplay () {
@@ -242,4 +244,5 @@ function clearWeatherDisplay () {
 function clearHoroscopeDisplay () {
     horoscopeImage.src = "";
     horoscopeDescription.innerText = "";
+    horoscopeTitle.innerText = "";
   }

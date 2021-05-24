@@ -204,7 +204,6 @@ h2 {
     margin: 0px 40px 0px 40px;
 }
 
-
 /* to stop autofill backround colour showing on input fields */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -303,3 +302,4 @@ ul {
 	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
 	        animation: heartbeat 1.5s ease-in-out infinite both;
 }
+

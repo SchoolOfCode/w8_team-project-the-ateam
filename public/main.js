@@ -29,7 +29,8 @@ let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 // EVENT LISTENERS
 userInfoBoxOpenButton.addEventListener("click", openModal);
 userInfoBoxCloseButton.addEventListener("click", closeModal);
-backgroundImageButton.addEventListener("click", getRandomNasaBackground)
+
+backgroundImageButton.addEventListener("click", getRandomNasaBackground);
 userDetailsButton.addEventListener("submit", setUserDetails);
 forecastDropdown.addEventListener("change", setForecastSelection);
 newsTopicsDropdown1.addEventListener("change", handleDropDown1Change);
@@ -38,6 +39,7 @@ newsTopicsDropdown2.addEventListener("change", handleDropDown2Change);
 pageLoad();
 
 // PAGE LOAD
+
 
 function pageLoad () {
     weatherDisplay();
@@ -51,6 +53,7 @@ function pageLoad () {
 
 function userInputPopUp () {
     setTimeout(()=>{ openModal(); },4000);
+
 }
 
 // USER INPUT FUNCTIONS
@@ -250,3 +253,4 @@ function clearHoroscopeDisplay () {
     horoscopeDescription.innerText = "";
     horoscopeTitle.innerText = "";
   }
+

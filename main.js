@@ -69,12 +69,17 @@ function setUserDetails (event) {
     validatedUserName = userNameInitialLetter + validatedUserName;
     userDetails.name = validatedUserName;
     userDetails.location = document.querySelector("#user-location").value;
+    if (userDetails.location === "") {
+        userDetails.location = "Birmingham";
+     }
     userDetails.starsign = document.querySelector("#star-sign-dropdown").value;
     let heading = document.getElementById("heading");
     heading.innerText = `Welcome back, ${userDetails.name}!`
     closeModal();
     userDetailsButton.reset();
-    userInfoBoxOpenButton.classList.remove("heartbeat");
+    if (userDetails.name !== "Friend") {
+     userInfoBoxOpenButton.classList.remove("heartbeat");
+     }
     weatherDisplay();
 }
 
@@ -172,18 +177,22 @@ async function getRandomNasaBackground() {
 
 async function displayBreakingNews () {
     let breakingNewsItems = await fetchBreakingNews();
+    console.log(breakingNewsItems);
     let breakingNewsSection = document.getElementById("breaking-news");
     for (i=0; i<10; i++) {
-      breakingNewsDiv = document.createElement("div");
-      breakingNewsDiv.classList.add("ticker-item");
-      breakingNewsTitle = document.createElement("a");
-      breakingNewsTitle.classList.add("link");
-      breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
-      breakingNewsTitle.href = breakingNewsItems.data[i].url;
-      breakingNewsTitle.target="_blank";
-      breakingNewsSection.appendChild(breakingNewsDiv);
-      breakingNewsDiv.appendChild(breakingNewsTitle);
-    }
+        console.log(breakingNewsItems.data[i].title)
+        if (breakingNewsItems.data[i].title !== breakingNewsItems.data[i+1].title){
+         breakingNewsDiv = document.createElement("div");
+         breakingNewsDiv.classList.add("ticker-item");
+         breakingNewsTitle = document.createElement("a");
+         breakingNewsTitle.classList.add("link");
+         breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
+         breakingNewsTitle.href = breakingNewsItems.data[i].url;
+         breakingNewsTitle.target="_blank";
+         breakingNewsSection.appendChild(breakingNewsDiv);
+         breakingNewsDiv.appendChild(breakingNewsTitle);
+       }
+     }
   }
   
 async function weatherDisplay () {

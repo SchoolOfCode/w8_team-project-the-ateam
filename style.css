@@ -113,8 +113,7 @@ nav {
 }
 #search-image {
         margin: 0.5vh 0.5vh 0 0.5vh;
-        /* height: 3vh */
-        height: 5vh;
+        height: 3vh;
 }
 .nav-buttons {
         margin-left: auto;
@@ -278,3 +277,8 @@ input:-webkit-autofill:active {
 	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
 	animation: heartbeat 1.5s ease-in-out infinite both;
 }     
+
+/* NEWS ITEMS */
+ul image {
+
+}

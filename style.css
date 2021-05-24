@@ -23,7 +23,10 @@ body {
         background-attachment: fixed;
         background-position: center;
         background-size:cover;
+        
 }
+
+
 .columns {
         width: 70vw;
         align-self: center;
@@ -138,6 +141,30 @@ h1 {
 }
 .column-input {
         margin-top: -10px;
+}
+/* forecast */
+/* horoscope */
+.horoscope-card {
+        margin: 1.5rem;
+        margin-top: -4vh;
+}
+.horoscope-header {
+        margin-bottom: -1rem;
+        width: 100%;
+        justify-content: left;
+}
+.horoscope-title {
+        font-size: 1.3rem;
+        padding-left: 5%;
+}
+.horoscope-icon {
+        max-height: 9vh;
+}
+.horoscope-text {
+        margin-top: 1rem;
+        margin-bottom: 0;
+        font-size: .8rem;
+        text-align: justify;
 }
 
 
@@ -272,6 +299,7 @@ input:-webkit-autofill:active {
 }
 
 
+
 /* Dynamic news styling */
 .headline {
         position: relative;
@@ -297,4 +325,9 @@ input:-webkit-autofill:active {
 }
 ul {
         padding-left: 0;
-}
+
+.heartbeat {
+	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	animation: heartbeat 1.5s ease-in-out infinite both;
+}     
+

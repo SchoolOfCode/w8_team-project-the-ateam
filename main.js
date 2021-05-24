@@ -170,7 +170,7 @@ async function displayBreakingNews () {
       breakingNewsDiv = document.createElement("div");
       breakingNewsDiv.classList.add("ticker-item");
       breakingNewsTitle = document.createElement("a");
-      breakingNewsTitle.classList.add("link");
+      breakingNewsTitle.classList.add("breaking-link");
       breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
       breakingNewsTitle.href = breakingNewsItems.data[i].url;
       breakingNewsTitle.target="_blank";

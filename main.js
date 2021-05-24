@@ -23,6 +23,7 @@ let userInfoBox = document.querySelector("#user-info-box");
 let userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
 let userInfoBoxCloseButton = document.querySelector("#close-modal");
 let userDetailsButton = document.getElementById("change-user-info");
+let backgroundImageButton = document.getElementById("background-image-button");
 let forecastDropdown = document.getElementById("forecast-dropdown");
 let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 
@@ -30,6 +31,7 @@ let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 backgroundImageChange.addEventListener("click", getRandomNasaBackground);
 userInfoBoxOpenButton.addEventListener("click", openModal);
 userInfoBoxCloseButton.addEventListener("click", closeModal);
+backgroundImageButton.addEventListener("click", getRandomNasaBackground)
 userDetailsButton.addEventListener("submit", setUserDetails);
 forecastDropdown.addEventListener("change", setForecastSelection);
 newsTopicsDropdown1.addEventListener("change", handleDropDown1Change);
@@ -182,6 +184,7 @@ async function displayBreakingNews () {
     console.log(breakingNewsItems);
     let breakingNewsSection = document.getElementById("breaking-news");
     for (i=0; i<10; i++) {
+
         console.log(breakingNewsItems.data[i].title)
         if (breakingNewsItems.data[i].title !== breakingNewsItems.data[i+1].title){
          breakingNewsDiv = document.createElement("div");
@@ -195,6 +198,7 @@ async function displayBreakingNews () {
          breakingNewsDiv.appendChild(breakingNewsTitle);
        }
      }
+
   }
   
 async function weatherDisplay () {

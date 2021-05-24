@@ -19,6 +19,10 @@
 body {
         font-family:Arial, Helvetica, sans-serif;
         color: white;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size:cover;
 }
 .columns {
         width: 70vw;
@@ -289,4 +293,5 @@ input:-webkit-autofill:active {
         margin-bottom: 6vh;
         filter: brightness(60%);
         z-index: 0;
+        position: ;
 }

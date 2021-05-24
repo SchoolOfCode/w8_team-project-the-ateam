@@ -173,7 +173,8 @@ async function getRandomNasaBackground() {
     const nasaResponse = await fetch(apiLink);
     const nasaPicture = await nasaResponse.json();
     let imageLink = nasaPicture.url;
-    document.body.style.background = `url(${imageLink})`;
+    document.body.style.background = `url(${imageLink}) no-repeat fixed center`;
+    document.body.style.backgroundSize = "100%"
   }
 
 async function displayBreakingNews () {

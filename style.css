@@ -294,3 +294,6 @@ input:-webkit-autofill:active {
         filter: brightness(60%);
         z-index: 0;
 }
+ul {
+        padding: 1vw;
+}

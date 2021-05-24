@@ -142,5 +142,25 @@
         </section>
     </section>
     <script src = "main.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      //  start the server first in index.js! {npm start}
+
+      var socket = io();
+      var trending = document.getElementById("current-trending-topics");
+      // const tweets = []
+      socket.on("tweet", (tweet) => {
+        console.log(tweet[0].trends[0].tweet_volume);
+        for (let i = 0; i < 10; i++) {
+          let tweetData = {
+            id: tweet[0].trends[i].name,
+            tweetVolume: tweet[0].trends[i].tweet_volume,
+          };
+          let tweetElement = document.createElement("li");
+          tweetElement.innerText = tweetData.id;
+          trending.appendChild(tweetElement);
+        }
+      });
+    </script>
 </body>
 </html>

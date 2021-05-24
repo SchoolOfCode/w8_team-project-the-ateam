@@ -16,7 +16,7 @@
       //  start the server first in index.js! {npm start}
 
       var socket = io();
-      var trending = document.getElementById("tweetStream");
+      var trending = document.getElementById("current-trending-topics");
       // const tweets = []
       socket.on("tweet", (tweet) => {
         console.log(tweet[0].trends[0].tweet_volume);
@@ -26,7 +26,7 @@
             tweetVolume: tweet[0].trends[i].tweet_volume,
           };
           let tweetElement = document.createElement("li");
-          tweetElement.innerText = `${tweetData.id}: ${tweetData.tweetVolume} mentions`;
+          tweetElement.innerText = tweetData.id;
           trending.appendChild(tweetElement);
         }
       });

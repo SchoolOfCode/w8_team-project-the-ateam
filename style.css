@@ -321,7 +321,7 @@ input:-webkit-autofill:active {
         border-radius: 10px;
         margin-bottom: 6vh;
         filter: brightness(60%);
-        z-index: 0;
+        /* z-index: 0; */
 }
 ul {
         padding-left: 0;

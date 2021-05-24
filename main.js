@@ -18,7 +18,6 @@ let horoscopeDescription = document.getElementById("horoscope-description");
 let horoscopeTitle = document.getElementById("horoscope-title");
 
 // DOM VARIABLES
-let backgroundImageChange = document.getElementById("info-button");
 let userInfoBox = document.querySelector("#user-info-box");
 let userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
 let userInfoBoxCloseButton = document.querySelector("#close-modal");
@@ -28,7 +27,6 @@ let forecastDropdown = document.getElementById("forecast-dropdown");
 let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 
 // EVENT LISTENERS
-backgroundImageChange.addEventListener("click", getRandomNasaBackground);
 userInfoBoxOpenButton.addEventListener("click", openModal);
 userInfoBoxCloseButton.addEventListener("click", closeModal);
 backgroundImageButton.addEventListener("click", getRandomNasaBackground)
@@ -175,8 +173,9 @@ async function getRandomNasaBackground() {
     const nasaResponse = await fetch(apiLink);
     const nasaPicture = await nasaResponse.json();
     let imageLink = nasaPicture.url;
-    document.body.style.background = `url(${imageLink}) no-repeat fixed center`;
-    document.body.style.backgroundSize = "100%";
+    document.body.style.background = `url(${imageLink})`;
+    // no-repeat fixed center`;
+    // document.body.style.backgroundSize = "100%";
   }
 
 async function displayBreakingNews () {

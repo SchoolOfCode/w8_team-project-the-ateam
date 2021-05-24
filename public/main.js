@@ -4,6 +4,7 @@ let userDetails = {
   location: "Birmingham",
   starsign: "Aries",
 };
+let date = new Date().toISOString().slice(0, 10);
 let newsItems;
 let newsTopicsDropdown2 = document.getElementById("topics-2-dropdown");
 let newsTypeSelection = "headlines";
@@ -14,6 +15,7 @@ let weatherTemperature = document.getElementById("temperature");
 let weatherLocation = document.getElementById("weather-location");
 let horoscopeImage = document.getElementById("horoscope-icon");
 let horoscopeDescription = document.getElementById("horoscope-description");
+let horoscopeTitle = document.getElementById("horoscope-title");
 
 // DOM VARIABLES
 let userInfoBox = document.querySelector("#user-info-box");
@@ -33,15 +35,25 @@ forecastDropdown.addEventListener("change", setForecastSelection);
 newsTopicsDropdown1.addEventListener("change", handleDropDown1Change);
 newsTopicsDropdown2.addEventListener("change", handleDropDown2Change);
 
+pageLoad();
+
 // PAGE LOAD
+
 function pageLoad() {
   weatherDisplay();
   displayBreakingNews();
-  // add default news display
+  handleDropDown1Change();
+  handleDropDown2Change();
+  getRandomNasaBackground();
+  userInputPopUp();
   // add twitter trending topics display
 }
-pageLoad();
-getRandomNasaBackground();
+
+function userInputPopUp() {
+  setTimeout(() => {
+    openModal();
+  }, 4000);
+}
 
 // USER INPUT FUNCTIONS
 function openModal() {
@@ -65,12 +77,19 @@ function setUserDetails(event) {
   validatedUserName = userNameInitialLetter + validatedUserName;
   userDetails.name = validatedUserName;
   userDetails.location = document.querySelector("#user-location").value;
+  if (userDetails.location === "") {
+    userDetails.location = "Birmingham";
+  }
   userDetails.starsign = document.querySelector("#star-sign-dropdown").value;
   let heading = document.getElementById("heading");
   heading.innerText = `Welcome back, ${userDetails.name}!`;
   closeModal();
   userDetailsButton.reset();
-  weatherDisplay();
+  if (forecastDropdown.value === "weather") {
+    weatherDisplay();
+  } else {
+    horoscopeDisplay();
+  }
 }
 
 // DROPDOWN BOXES FUNCTIONS
@@ -96,7 +115,7 @@ function handleDropDown2Change() {
 // FETCH REQUESTS
 async function fetchBreakingNews() {
   let response = await fetch(
-    "http://api.mediastack.com/v1/news?access_key=d2e7cd704c760008100066b1a3258c3e&countries=gb&date=2021-05-23&sources=bbc",
+    `http://api.mediastack.com/v1/news?access_key=d2e7cd704c760008100066b1a3258c3e&countries=gb&${date}&sources=bbc`,
     {
       method: "GET",
       redirect: "follow",
@@ -174,22 +193,27 @@ async function getRandomNasaBackground() {
   const nasaResponse = await fetch(apiLink);
   const nasaPicture = await nasaResponse.json();
   let imageLink = nasaPicture.url;
-  document.body.style.backgroundImage = `url(${imageLink})`;
+  document.body.style.background = `url(${imageLink}) no-repeat fixed center`;
+  document.body.style.backgroundSize = "100%";
 }
 
 async function displayBreakingNews() {
   let breakingNewsItems = await fetchBreakingNews();
   let breakingNewsSection = document.getElementById("breaking-news");
   for (i = 0; i < 10; i++) {
-    breakingNewsDiv = document.createElement("div");
-    breakingNewsDiv.classList.add("ticker-item");
-    breakingNewsTitle = document.createElement("a");
-    breakingNewsTitle.classList.add("breaking-link");
-    breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
-    breakingNewsTitle.href = breakingNewsItems.data[i].url;
-    breakingNewsTitle.target = "_blank";
-    breakingNewsSection.appendChild(breakingNewsDiv);
-    breakingNewsDiv.appendChild(breakingNewsTitle);
+    if (
+      breakingNewsItems.data[i].title !== breakingNewsItems.data[i + 1].title
+    ) {
+      breakingNewsDiv = document.createElement("div");
+      breakingNewsDiv.classList.add("ticker-item");
+      breakingNewsTitle = document.createElement("a");
+      breakingNewsTitle.classList.add("breaking-link");
+      breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
+      breakingNewsTitle.href = breakingNewsItems.data[i].url;
+      breakingNewsTitle.target = "_blank";
+      breakingNewsSection.appendChild(breakingNewsDiv);
+      breakingNewsDiv.appendChild(breakingNewsTitle);
+    }
   }
 }
 
@@ -199,6 +223,7 @@ async function weatherDisplay() {
   weatherImage.src = `${weatherDetails.current.condition.icon}`;
   weatherTemperature.innerText = `${weatherDetails.current.temp_c}°C`;
   weatherLocation.innerText = `${weatherDetails.location.name}`;
+  forecastDropdown.value = "weather";
 }
 
 async function newsItemsDisplay() {
@@ -227,6 +252,8 @@ async function horoscopeDisplay() {
   let horoscopeDetails = await fetchHoroscope();
   horoscopeImage.src = `/images/${userDetails.starsign}.png`;
   horoscopeDescription.innerText = `"${horoscopeDetails.description}"`;
+  horoscopeTitle.innerText = userDetails.starsign;
+  forecastDropdown.value = "horoscope";
 }
 
 function clearWeatherDisplay() {
@@ -238,4 +265,5 @@ function clearWeatherDisplay() {
 function clearHoroscopeDisplay() {
   horoscopeImage.src = "";
   horoscopeDescription.innerText = "";
+  horoscopeTitle.innerText = "";
 }

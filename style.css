@@ -20,7 +20,12 @@
 body {
         font-family:Arial, Helvetica, sans-serif;
         color: white;
+        
 }
+.background {
+        filter: grayscale(100%);
+}
+
 .columns {
         width: 70vw;
         align-self: center;
@@ -119,8 +124,7 @@ nav {
         margin-left: auto;
 }
 .nav-btn {
-        /*height: 4vh;*/
-        height: 7vh;
+        height: 4vh;
         margin: 0.5vh;
 }
 

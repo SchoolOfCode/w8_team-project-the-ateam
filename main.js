@@ -15,9 +15,9 @@ let weatherTemperature = document.getElementById("temperature");
 let weatherLocation = document.getElementById("weather-location");
 let horoscopeImage = document.getElementById("horoscope-icon");
 let horoscopeDescription = document.getElementById("horoscope-description");
+let horoscopeTitle = document.getElementById("horoscope-title");
 
 // DOM VARIABLES
-let backgroundImageChange = document.getElementById("info-button");
 let userInfoBox = document.querySelector("#user-info-box");
 let userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
 let userInfoBoxCloseButton = document.querySelector("#close-modal");
@@ -27,9 +27,9 @@ let forecastDropdown = document.getElementById("forecast-dropdown");
 let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 
 // EVENT LISTENERS
-backgroundImageChange.addEventListener("click", getRandomNasaBackground);
 userInfoBoxOpenButton.addEventListener("click", openModal);
 userInfoBoxCloseButton.addEventListener("click", closeModal);
+backgroundImageButton.addEventListener("click", getRandomNasaBackground)
 userDetailsButton.addEventListener("submit", setUserDetails);
 forecastDropdown.addEventListener("change", setForecastSelection);
 newsTopicsDropdown1.addEventListener("change", handleDropDown1Change);
@@ -176,7 +176,8 @@ async function getRandomNasaBackground() {
     const nasaResponse = await fetch(apiLink);
     const nasaPicture = await nasaResponse.json();
     let imageLink = nasaPicture.url;
-    document.body.style.backgroundImage = `url(${imageLink})`;
+    document.body.style.background = `url(${imageLink}) no-repeat fixed center`;
+    document.body.style.backgroundSize = "100%"
   }
 
 async function displayBreakingNews () {
@@ -184,6 +185,7 @@ async function displayBreakingNews () {
     console.log(breakingNewsItems);
     let breakingNewsSection = document.getElementById("breaking-news");
     for (i=0; i<10; i++) {
+
         console.log(breakingNewsItems.data[i].title)
         if (breakingNewsItems.data[i].title !== breakingNewsItems.data[i+1].title){
          breakingNewsDiv = document.createElement("div");
@@ -197,6 +199,7 @@ async function displayBreakingNews () {
          breakingNewsDiv.appendChild(breakingNewsTitle);
        }
      }
+
   }
   
 async function weatherDisplay () {
@@ -222,17 +225,18 @@ async function newsItemsDisplay () {
          newsItemTitle.target="_blank";
          let newsItemImage = document.createElement("img");
          newsItemImage.src=newsItems.response.results[i].fields.thumbnail;
+        //  newsItemImage.href = newsItems.response.results[i].webUrl;
          newsItemImage.classList.add("headline-image");
          ulTopics.appendChild(newsItemSection);
          newsItemSection.appendChild(newsItemTitle);
-         newsItemSection.appendChild(newsItemImage);
+         newsItemTitle.appendChild(newsItemImage);
         }
      }
 
 async function horoscopeDisplay () {
     clearWeatherDisplay();
     let horoscopeDetails = await fetchHoroscope();
-    horoscopeImage.src = `/images/${userDetails.starsign}.png`;
+    horoscopeImage.src = `images/${userDetails.starsign}.png`;
     horoscopeDescription.innerText = `"${horoscopeDetails.description}"`;  
     let horoscopeTitle = document.getElementById("horoscope-title");
     horoscopeTitle.innerText = userDetails.starsign;
@@ -248,4 +252,5 @@ function clearWeatherDisplay () {
 function clearHoroscopeDisplay () {
     horoscopeImage.src = "";
     horoscopeDescription.innerText = "";
+    horoscopeTitle.innerText = "";
   }

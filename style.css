@@ -1,3 +1,4 @@
+  
 :root {
         --colour-light-text: #fefefe;
         --colour-background-box: #0A0A0B;
@@ -303,7 +304,7 @@ input:-webkit-autofill:active {
         padding: 0 1.5vw 0 1.5vw;
 }
 .link {
-        position: absolute;
+        /* position: absolute; */
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -311,9 +312,10 @@ input:-webkit-autofill:active {
         text-decoration: none;
         color: var(--colour-light-text);
         z-index: 1;
+} 
 
 .headline-image {
-        position: absolute;
+        /* position: absolute; */
         width: 100%;
         border-radius: 10px;
         margin-bottom: 6vh;
@@ -327,10 +329,4 @@ ul {
 .heartbeat {
 	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
 	animation: heartbeat 1.5s ease-in-out infinite both;
-}     
-
-/* NEWS ITEMS */
-/* ul image {
-
-} */
-
+}    

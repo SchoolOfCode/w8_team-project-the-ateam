@@ -22,7 +22,7 @@ let userInfoBox = document.querySelector("#user-info-box");
 let userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
 let userInfoBoxCloseButton = document.querySelector("#close-modal");
 let userDetailsButton = document.getElementById("change-user-info");
-let backgroundImageButton = document.getElementById("info-button");
+let backgroundImageButton = document.getElementById("background-image-button");
 let forecastDropdown = document.getElementById("forecast-dropdown");
 let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 
@@ -81,10 +81,7 @@ function setUserDetails (event) {
     if (userDetails.name !== "Friend") {
      userInfoBoxOpenButton.classList.remove("heartbeat");
      }
-     if (forecastDropdown.value === "weather") {
     weatherDisplay();
-     }
-     horoscopeDisplay();
 }
 
 // DROPDOWN BOXES FUNCTIONS
@@ -208,7 +205,6 @@ async function weatherDisplay () {
       weatherImage.src = `${weatherDetails.current.condition.icon}`;
       weatherTemperature.innerText = `${weatherDetails.current.temp_c}°C`;
       weatherLocation.innerText = `${weatherDetails.location.name}`;
-      forecastDropdown.value = "weather";
   }
 
 async function newsItemsDisplay () {
@@ -238,9 +234,7 @@ async function horoscopeDisplay () {
     let horoscopeDetails = await fetchHoroscope();
     horoscopeImage.src = `images/${userDetails.starsign}.png`;
     horoscopeDescription.innerText = `"${horoscopeDetails.description}"`;  
-    let horoscopeTitle = document.getElementById("horoscope-title");
     horoscopeTitle.innerText = userDetails.starsign;
-    forecastDropdown.value = "horoscope";
   }
 
 function clearWeatherDisplay () {

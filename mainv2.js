@@ -8,8 +8,8 @@ let date = new Date().toISOString().slice(0,10);
 let newsItems;
 let newsTopicsDropdown2 = document.getElementById("topics-2-dropdown");
 let newsTypeSelection = "headlines";
-let DropDownContainerId;
-let DropDownSelection;
+let dropDownContainerId;
+let dropDownSelection;
 let weatherImage = document.getElementById("weather-icon");
 let weatherTemperature = document.getElementById("temperature");
 let weatherLocation = document.getElementById("weather-location");
@@ -22,15 +22,14 @@ let userInfoBox = document.querySelector("#user-info-box");
 let userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
 let userInfoBoxCloseButton = document.querySelector("#close-modal");
 let userDetailsButton = document.getElementById("change-user-info");
-let backgroundImageButton = document.getElementById("background-image-button");
+let backgroundImageButton = document.getElementById("info-button");
 let forecastDropdown = document.getElementById("forecast-dropdown");
 let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 
 // EVENT LISTENERS
 userInfoBoxOpenButton.addEventListener("click", openModal);
 userInfoBoxCloseButton.addEventListener("click", closeModal);
-
-backgroundImageButton.addEventListener("click", getRandomNasaBackground);
+backgroundImageButton.addEventListener("click", getRandomNasaBackground)
 userDetailsButton.addEventListener("submit", setUserDetails);
 forecastDropdown.addEventListener("change", setForecastSelection);
 newsTopicsDropdown1.addEventListener("change", handleDropDown1Change);
@@ -40,20 +39,13 @@ pageLoad();
 
 // PAGE LOAD
 
-
 function pageLoad () {
     weatherDisplay();
     displayBreakingNews();
     handleDropDown1Change();
     handleDropDown2Change();
     getRandomNasaBackground();
-    userInputPopUp();
     // add twitter trending topics display
-}
-
-function userInputPopUp () {
-    setTimeout(()=>{ openModal(); },4000);
-
 }
 
 // USER INPUT FUNCTIONS
@@ -86,10 +78,13 @@ function setUserDetails (event) {
     heading.innerText = `Welcome back, ${userDetails.name}!`
     closeModal();
     userDetailsButton.reset();
-    if (forecastDropdown.value === "weather") {
-       weatherDisplay();
-        }
-    else {horoscopeDisplay();}
+    if (userDetails.name !== "Friend") {
+     userInfoBoxOpenButton.classList.remove("heartbeat");
+     }
+     if (forecastDropdown.value === "weather") {
+    weatherDisplay();
+     }
+     horoscopeDisplay();
 }
 
 // DROPDOWN BOXES FUNCTIONS
@@ -102,14 +97,14 @@ function setForecastSelection () {
 }
 
 function handleDropDown1Change (){
-    DropDownSelection = "topics-1-dropdown";
-    DropDownContainerId = "topics-1-headlines";
+    dropDownSelection = "topics-1-dropdown";
+    dropDownContainerId = "topics-1-headlines";
     newsItemsDisplay();
 }
 
 function handleDropDown2Change (){
-    DropDownSelection = "topics-2-dropdown";
-    DropDownContainerId = "topics-2-headlines";
+    dropDownSelection = "topics-2-dropdown";
+    dropDownContainerId = "topics-2-headlines";
     newsItemsDisplay();
 }
 
@@ -139,7 +134,7 @@ async function fetchHoroscope () {
   
 async function fetchNewsType (){
     let guardianApiKey = `ccf9a5bd-5549-4c8f-ae0c-62bfd3938f71`;
-    newsTypeSelection = document.getElementById(`${DropDownSelection}`).value;
+    newsTypeSelection = document.getElementById(`${dropDownSelection}`).value;
     let newsType = "";
     if (newsTypeSelection !== "headlines") {
           newsType = `section=${newsTypeSelection}`;
@@ -190,17 +185,17 @@ async function displayBreakingNews () {
     let breakingNewsSection = document.getElementById("breaking-news");
     for (i=0; i<10; i++) {
         if (breakingNewsItems.data[i].title !== breakingNewsItems.data[i+1].title){
-            breakingNewsDiv = document.createElement("div");
-            breakingNewsDiv.classList.add("ticker-item");
-            breakingNewsTitle = document.createElement("a");
-            breakingNewsTitle.classList.add("breaking-link");
-            breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
-            breakingNewsTitle.href = breakingNewsItems.data[i].url;
-            breakingNewsTitle.target="_blank";
-            breakingNewsSection.appendChild(breakingNewsDiv);
-            breakingNewsDiv.appendChild(breakingNewsTitle);
-          }
-    }
+         breakingNewsDiv = document.createElement("div");
+         breakingNewsDiv.classList.add("ticker-item");
+         breakingNewsTitle = document.createElement("a");
+         breakingNewsTitle.classList.add("breaking-link");
+         breakingNewsTitle.innerText = breakingNewsItems.data[i].title;
+         breakingNewsTitle.href = breakingNewsItems.data[i].url;
+         breakingNewsTitle.target="_blank";
+         breakingNewsSection.appendChild(breakingNewsDiv);
+         breakingNewsDiv.appendChild(breakingNewsTitle);
+       }
+     }
   }
   
 async function weatherDisplay () {
@@ -213,10 +208,10 @@ async function weatherDisplay () {
   }
 
 async function newsItemsDisplay () {
-     let ulTopics = document.getElementById(`${DropDownContainerId}`);
+     let ulTopics = document.getElementById(`${dropDownContainerId}`);
      ulTopics.innerHTML = "";
      newsItems = await fetchNewsType();
-     for (let i=0; i<4; i++) {
+         for (let i=0; i<4; i++) {
          let newsItemSection = document.createElement("section");
          newsItemSection.classList.add("headline");
          let newsItemTitle = document.createElement("a");
@@ -229,15 +224,16 @@ async function newsItemsDisplay () {
          newsItemImage.classList.add("headline-image");
          ulTopics.appendChild(newsItemSection);
          newsItemSection.appendChild(newsItemTitle);
-         newsItemSection.appendChild(newsItemImage);
+         newsItemTitle.appendChild(newsItemImage);
         }
      }
 
 async function horoscopeDisplay () {
     clearWeatherDisplay();
     let horoscopeDetails = await fetchHoroscope();
-    horoscopeImage.src = `/images/${userDetails.starsign}.png`;
+    horoscopeImage.src = `images/${userDetails.starsign}.png`;
     horoscopeDescription.innerText = `"${horoscopeDetails.description}"`;  
+    let horoscopeTitle = document.getElementById("horoscope-title");
     horoscopeTitle.innerText = userDetails.starsign;
     forecastDropdown.value = "horoscope";
   }
@@ -253,4 +249,3 @@ function clearHoroscopeDisplay () {
     horoscopeDescription.innerText = "";
     horoscopeTitle.innerText = "";
   }
-

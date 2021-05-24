@@ -113,13 +113,15 @@ nav {
 }
 #search-image {
         margin: 0.5vh 0.5vh 0 0.5vh;
-        height: 3vh;
+        /* height: 3vh */
+        height: 5vh;
 }
 .nav-buttons {
         margin-left: auto;
 }
 .nav-btn {
-        height: 4vh;
+        /*height: 4vh;*/
+        height: 7vh;
         margin: 0.5vh;
 }
 
@@ -272,4 +274,7 @@ input:-webkit-autofill:active {
         text-decoration: underline;
 }
 
-      
+.heartbeat {
+	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	animation: heartbeat 1.5s ease-in-out infinite both;
+}     

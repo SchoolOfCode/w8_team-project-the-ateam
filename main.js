@@ -4,11 +4,12 @@ let userDetails = {
     location: "Birmingham",
     starsign: "Aries"
 }
+let date = new Date().toISOString().slice(0,10);
 let newsItems;
 let newsTopicsDropdown2 = document.getElementById("topics-2-dropdown");
 let newsTypeSelection = "headlines";
-let DropDownContainerId;
-let DropDownSelection;
+let dropDownContainerId;
+let dropDownSelection;
 let weatherImage = document.getElementById("weather-icon");
 let weatherTemperature = document.getElementById("temperature");
 let weatherLocation = document.getElementById("weather-location");
@@ -16,6 +17,7 @@ let horoscopeImage = document.getElementById("horoscope-icon");
 let horoscopeDescription = document.getElementById("horoscope-description");
 
 // DOM VARIABLES
+let backgroundImageChange = document.getElementById("info-button");
 let userInfoBox = document.querySelector("#user-info-box");
 let userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
 let userInfoBoxCloseButton = document.querySelector("#close-modal");
@@ -24,6 +26,7 @@ let forecastDropdown = document.getElementById("forecast-dropdown");
 let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 
 // EVENT LISTENERS
+backgroundImageChange.addEventListener("click", getRandomNasaBackground);
 userInfoBoxOpenButton.addEventListener("click", openModal);
 userInfoBoxCloseButton.addEventListener("click", closeModal);
 userDetailsButton.addEventListener("submit", setUserDetails);
@@ -31,15 +34,18 @@ forecastDropdown.addEventListener("change", setForecastSelection);
 newsTopicsDropdown1.addEventListener("change", handleDropDown1Change);
 newsTopicsDropdown2.addEventListener("change", handleDropDown2Change);
 
+pageLoad();
+
 // PAGE LOAD
+
 function pageLoad () {
     weatherDisplay();
     displayBreakingNews();
-    // add default news display
+    handleDropDown1Change();
+    handleDropDown2Change();
+    getRandomNasaBackground();
     // add twitter trending topics display
 }
-pageLoad();
-getRandomNasaBackground();
 
 // USER INPUT FUNCTIONS
 function openModal() {
@@ -68,6 +74,7 @@ function setUserDetails (event) {
     heading.innerText = `Welcome back, ${userDetails.name}!`
     closeModal();
     userDetailsButton.reset();
+    userInfoBoxOpenButton.classList.remove("heartbeat");
     weatherDisplay();
 }
 
@@ -81,20 +88,20 @@ function setForecastSelection () {
 }
 
 function handleDropDown1Change (){
-    DropDownSelection = "topics-1-dropdown";
-    DropDownContainerId = "topics-1-headlines";
+    dropDownSelection = "topics-1-dropdown";
+    dropDownContainerId = "topics-1-headlines";
     newsItemsDisplay();
 }
 
 function handleDropDown2Change (){
-    DropDownSelection = "topics-2-dropdown";
-    DropDownContainerId = "topics-2-headlines";
+    dropDownSelection = "topics-2-dropdown";
+    dropDownContainerId = "topics-2-headlines";
     newsItemsDisplay();
 }
 
 // FETCH REQUESTS
 async function fetchBreakingNews () {
-    let response = await fetch("http://api.mediastack.com/v1/news?access_key=d2e7cd704c760008100066b1a3258c3e&countries=gb&date=2021-05-23&sources=bbc", {
+    let response = await fetch(`http://api.mediastack.com/v1/news?access_key=d2e7cd704c760008100066b1a3258c3e&countries=gb&${date}&sources=bbc`, {
       method: 'GET',
       redirect: 'follow'
     })
@@ -118,7 +125,7 @@ async function fetchHoroscope () {
   
 async function fetchNewsType (){
     let guardianApiKey = `ccf9a5bd-5549-4c8f-ae0c-62bfd3938f71`;
-    newsTypeSelection = document.getElementById(`${DropDownSelection}`).value;
+    newsTypeSelection = document.getElementById(`${dropDownSelection}`).value;
     let newsType = "";
     if (newsTypeSelection !== "headlines") {
           newsType = `section=${newsTypeSelection}`;
@@ -188,10 +195,10 @@ async function weatherDisplay () {
   }
 
 async function newsItemsDisplay () {
-     let ulTopics = document.getElementById(`${DropDownContainerId}`);
+     let ulTopics = document.getElementById(`${dropDownContainerId}`);
      ulTopics.innerHTML = "";
      newsItems = await fetchNewsType();
-     for (let i=0; i<4; i++) {
+         for (let i=0; i<4; i++) {
          let newsItemSection = document.createElement("section");
          newsItemSection.classList.add("headline");
          let newsItemTitle = document.createElement("a");

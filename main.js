@@ -20,12 +20,14 @@ let userInfoBox = document.querySelector("#user-info-box");
 let userInfoBoxOpenButton = document.querySelector("#change-user-info-button");
 let userInfoBoxCloseButton = document.querySelector("#close-modal");
 let userDetailsButton = document.getElementById("change-user-info");
+let backgroundImageButton = document.getElementById("background-image-button");
 let forecastDropdown = document.getElementById("forecast-dropdown");
 let newsTopicsDropdown1 = document.getElementById("topics-1-dropdown");
 
 // EVENT LISTENERS
 userInfoBoxOpenButton.addEventListener("click", openModal);
 userInfoBoxCloseButton.addEventListener("click", closeModal);
+backgroundImageButton.addEventListener("click", getRandomNasaBackground)
 userDetailsButton.addEventListener("submit", setUserDetails);
 forecastDropdown.addEventListener("change", setForecastSelection);
 newsTopicsDropdown1.addEventListener("change", handleDropDown1Change);

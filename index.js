@@ -57,7 +57,10 @@ async function getTrends(socket) {
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
+  // res.sendFile(__dirname + "/style.css");
+  // res.sendFile(__dirname + "/main.js");
 });
+app.use(express.static(path.join(__dirname, "public")));
 
 io.on("connection", () => {
   console.log("client connected");

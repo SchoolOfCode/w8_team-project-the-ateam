@@ -217,10 +217,11 @@ async function newsItemsDisplay () {
          newsItemTitle.target="_blank";
          let newsItemImage = document.createElement("img");
          newsItemImage.src=newsItems.response.results[i].fields.thumbnail;
+        //  newsItemImage.href = newsItems.response.results[i].webUrl;
          newsItemImage.classList.add("headline-image");
          ulTopics.appendChild(newsItemSection);
          newsItemSection.appendChild(newsItemTitle);
-         newsItemSection.appendChild(newsItemImage);
+         newsItemTitle.appendChild(newsItemImage);
         }
      }
 

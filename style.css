@@ -23,8 +23,7 @@ body {
 .columns {
         width: 70vw;
         align-self: center;
-        justify-content:space-between;
-        
+        justify-content:space-between;   
 }
 .link {
         color: white;
@@ -49,7 +48,6 @@ body {
     border-radius: 10px;
     border: solid white;
     align-self: center;
-    
     color: white;
     font-size: 1rem;
     background-color: transparent;
@@ -136,6 +134,9 @@ h1 {
 }
 .column-input {
         margin-top: -10px;
+}
+#topics-1 {
+        padding-inline-start: 0px;
 }
 
 
@@ -269,4 +270,10 @@ input:-webkit-autofill:active {
         text-decoration: underline;
 }
 
-      
+
+/* Dynamic news styling */
+.headline-image {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 6vh;
+}

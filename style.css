@@ -276,6 +276,7 @@ input:-webkit-autofill:active {
 .headline {
         position: relative;
         text-align: center;
+        padding: 0 1.5vw 0 1.5vw;
 }
 .link {
         position: absolute;
@@ -293,5 +294,7 @@ input:-webkit-autofill:active {
         margin-bottom: 6vh;
         filter: brightness(60%);
         z-index: 0;
-        position: ;
+}
+ul {
+        padding-left: 0;
 }

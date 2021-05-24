@@ -234,7 +234,7 @@ async function horoscopeDisplay () {
     let horoscopeDetails = await fetchHoroscope();
     horoscopeImage.src = `/images/${userDetails.starsign}.png`;
     horoscopeDescription.innerText = `"${horoscopeDetails.description}"`;  
-    let horoscopeTitle = document.getElementById("horoscope-sign");
+    let horoscopeTitle = document.getElementById("horoscope-title");
     horoscopeTitle.innerText = userDetails.starsign;
     forecastDropdown.value = "horoscope";
   }

@@ -155,14 +155,20 @@
         var trending = document.getElementById("current-trending-topics");
         // const tweets = []
         socket.on("tweet", (tweet) => {
-            console.log(tweet[0].trends[0].tweet_volume);
+            console.log(tweet[0].trends[0].url);
             for (let i = 0; i < 10; i++) {
                 let tweetData = {
                     id: tweet[0].trends[i].name,
                     tweetVolume: tweet[0].trends[i].tweet_volume,
+                    tweetLink: tweet[0].trends[0].url
                 };
                 let tweetElement = document.createElement("li");
-                tweetElement.innerText = tweetData.id;
+                let tweetLink = document.createElement('a')
+                // tweetElement.innerText = tweetData.id;
+                tweetLink.href = tweetData.tweetLink;
+                console.log(tweetData.tweetLink)
+                tweetLink.innerHTML = tweetData.id
+                tweetElement.appendChild(tweetLink)
                 trending.appendChild(tweetElement);
             }
         });

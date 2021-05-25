@@ -77,16 +77,20 @@
                     </select>
                 </fieldset>
                 <!-- weather display -->
-                <section id="weather">
-                    <img id="weather-icon"/>
-                    <p id="temperature"></p>
-                    <p id="weather-location"></p>
+                <section id="weather" class="flexbox forecast weather">
+                    <section class="flexbox horizontal forecast-header weather-header">
+                        <img id="weather-icon" class="forecast-icon"/>
+                        <p id="temperature" class="forecast-title weather-temp"></p>
+                    </section>
+                    <p id="weather-location" class="forecast-text weather-text"></p>
                 </section>
                 <!-- horoscope display -->
-                <section id="horoscope">
-                    <img id="horoscope-icon"/>
-                    <h3 id="horoscope-title"></h3>
-                    <p id="horoscope-description"></p>
+                <section id="horoscope" class="flexbox forecast horoscope">
+                    <section class="flexbox horizontal forecast-header horoscope-header">
+                        <img id="horoscope-icon" class="forecast-icon"/>
+                        <h3 id="horoscope-title" class="forecast-title horoscope-title"></h3>
+                    </section>
+                    <p id="horoscope-description" class="forecast-text horoscope-text"></p>
                 </section>
             </section>
             <section id="trending" class="news-column box-shadow">

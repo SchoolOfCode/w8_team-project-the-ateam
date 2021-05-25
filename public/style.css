@@ -303,3 +303,50 @@ ul {
 	        animation: heartbeat 1.5s ease-in-out infinite both;
 }
 
+/* forecasts */
+.forecast {
+        margin: 1.5rem;
+}
+.forecast-header {
+        margin-bottom: -1rem;
+        width: 100%;
+}
+.forecast-icon {
+        max-height: 10vh;
+}
+.forecast-title {
+        padding-left: 5%;
+}
+.forecast-text {
+        margin-top: 1rem;
+        margin-bottom: 0;
+}
+/* weather */
+.weather {
+        margin-top: -.2vh;
+}
+.weather-header {
+        justify-content:center;
+}
+.weather-temp {
+        font-size: 1.8rem;
+        font-weight: bolder;
+}
+.weather-text {
+        text-align: center;
+        font-size: 1rem;
+}
+/* horoscope */
+.horoscope {
+        margin-top: -10vh;
+}
+.horoscope-header {
+        justify-content: left;
+}
+.horoscope-title {
+        font-size: 1.3rem;
+}
+.horoscope-text {
+        text-align: justify;
+        font-size: .8rem;
+}

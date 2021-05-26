@@ -115,7 +115,7 @@ function handleDropDown2Change (){
 
 // FETCH REQUESTS
 async function fetchBreakingNews () {
-    let response = await fetch(`http://api.mediastack.com/v1/news?access_key=d2e7cd704c760008100066b1a3258c3e&countries=gb&${date}&sources=bbc`, {
+    let response = await fetch(`http://api.mediastack.com/v1/news?access_key=4db6b5e9cce848aa986afc90c7868274&countries=gb&${date}&sources=bbc`, {
       method: 'GET',
       redirect: 'follow'
     })

@@ -83,7 +83,7 @@ function setUserDetails (event) {
      }
     userDetails.starsign = document.querySelector("#star-sign-dropdown").value;
     let heading = document.getElementById("heading");
-    heading.innerText = `Welcome back, ${userDetails.name}!`
+    heading.innerText = `Good evening, ${userDetails.name}!`
     closeModal();
     userDetailsButton.reset();
     if (forecastDropdown.value === "weather") {

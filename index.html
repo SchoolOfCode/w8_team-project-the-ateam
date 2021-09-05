@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "style.css">
+    <link rel = "stylesheet" href = "animations.css">
+    <title>Up2d8</title>
+</head>
+<body class="flexbox">
+    <header>
+        <nav class="flexbox horizontal">
+            <!-- google search bar -->
+                <form id="search-bar" class="search-bar" action="https://www.google.co.uk/search" target="_blank" method="GET">
+                    <input id="user-search" class="search-bar-input" type="text" name="q" autocomplete="off" placeholder="Google...">
+                    <input id="search-image" class="btn" type="image" src="images/search-icon.png" alt="submit icon">
+                </form>
+            <!-- buttons -->
+            <section class="nav-buttons">
+                <input id="background-image-button" class=" btn nav-btn heartbeat" type="image" src="images/photo-icon.png" alt="Background image">
+                <input id="change-user-info-button" class="btn nav-btn heartbeat" type="image" src="images/user-icon.png" alt="User info button">
+            </section>
+        </nav>
+        <h1 id="heading" class="text text-shadow">Good evening!</h1>
+    </header>
+
+    <main class="flexbox">
+        <!-- breaking news ticker -->
+        <fieldset class="ticker-border">
+            <legend>bbc breaking news</legend>
+            <section class="tcontainer">
+                <section class="ticker-wrap"></section>
+                <section  id="breaking-news" class="ticker-move"></section>
+            </section>
+        </fieldset>
+        <!-- news columns -->
+        <section class="flexbox horizontal columns">
+            <section id="topics-1" class="news-column">
+            <!-- topics 1 dropdown menu -->
+            <fieldset class="column-input box-shadow">
+                <legend class="text-shadow">topic</legend>
+                <select class="input-box dropdown" id="topics-1-dropdown" name="topics-1-dropdown">
+                    <option value="world" selected disabled>Select</option>
+                    <option value="headlines">Headlines</option>
+                    <option value="politics">Politics</option>
+                    <option value="technology">Technology</option>
+                    <option value="business">Business</option>
+                </select>
+            </fieldset>
+            <!-- topics 1 headlines -->
+            <ul id="topics-1-headlines"></ul>
+        </section>
+        <section id="topics-2" class="news-column box-shadow">
+            <!-- topics 2 dropdown menu -->
+            <fieldset class="column-input box-shadow">
+                <legend class="text-shadow">topic</legend>
+                <select class="input-box dropdown" id="topics-2-dropdown" name="topics-2-dropdown">
+                    <option value="culture" selected disabled>Select</option>
+                    <option value="sport">Sport</option>
+                    <option value="football">Football</option>
+                    <option value="music">Music</option>
+                    <option value="film">Film</option>
+                </select>
+            </fieldset>
+            <!-- topics 2 headlines -->
+            <ul id="topics-2-headlines"></ul>
+        </section>
+        <section class="flexbox">
+            <section id="forecast" class="news-column box-shadow">
+                <!-- forecast dropdown menu -->
+                <fieldset class="column-input box-shadow">
+                    <legend class="text-shadow">forecast</legend>
+                    <select class="input-box dropdown" id="forecast-dropdown" name="forecast-dropdown">
+                        <option value="weather">Weather</option>
+                        <option value="horoscope">Horoscope</option>
+                    </select>
+                </fieldset>
+                <!-- weather display -->
+                <section id="weather" class="flexbox forecast weather">
+                    <section class="flexbox horizontal forecast-header weather-header">
+                        <img id="weather-icon" class="forecast-icon"/>
+                        <p id="temperature" class="forecast-title weather-temp"></p>
+                    </section>
+                    <p id="weather-location" class="forecast-text weather-text"></p>
+                </section>
+                <!-- horoscope display -->
+                <section id="horoscope" class="flexbox forecast horoscope">
+                    <section class="flexbox horizontal forecast-header horoscope-header">
+                        <img id="horoscope-icon" class="forecast-icon"/>
+                        <h3 id="horoscope-title" class="forecast-title horoscope-title"></h3>
+                    </section>
+                    <p id="horoscope-description" class="forecast-text horoscope-text"></p>
+                </section>
+            </section>
+            <section id="trending" class="news-column box-shadow">
+                <!-- trending title and refresh -->
+                <fieldset class="box-shadow">
+                    <!-- <legend></legend> -->
+                    <section class="flexbox horizontal">
+                        <button class="refresh" id="refresh" type="button">Twitter Trending</button>
+                        <img src="images/reload.png" class="twitter-icon" />
+                    </section>
+                </fieldset>
+                <ol id="current-trending-topics"></ol>
+            </section>
+        </section>
+    </main>
+
+    <!-- modal box -->
+    <section id="user-info-box" class="modal fade-in">
+        <section class="modal-with-icon flexbox">
+            <section class="modal-semicircle">
+                <img class="icon bounce-in-top" src="images/user-icon.png">
+            </section>
+            <section class="modal-content flexbox box-shadow">
+                <button class="btn close text-shadow" id="close-modal">&times</button>
+                <h2 class="puff-in-center text-shadow">Change User Info</h2>
+                <form id="change-user-info" class="flexbox form puff-in-center">
+                    <!-- user name input -->
+                    <fieldset class= "modal-input box-shadow">
+                        <legend class="text-shadow">name</legend>
+                        <input class="input-box" id="user-name" name="user-name" type="text" placeholder="First Name" />
+                    </fieldset>
+                    <!-- user location input -->
+                    <fieldset class="modal-input box-shadow">
+                        <legend class="text-shadow">location</legend>
+                        <input class="input-box" id="user-location" name="user-location" type="text" placeholder="Enter a location" />
+                    </fieldset>
+                    <!-- star sign dropdown menu -->
+                    <fieldset class="modal-input box-shadow">
+                        <legend class="text-shadow">star sign</legend>
+                        <select class="input-box dropdown" id="star-sign-dropdown" name="star-sign-dropdown">
+                            <option value="Aries">Aries (March 21st - April 20th)</option>
+                            <option value="Taurus">Taurus (April 21st - May 20th)</option>
+                            <option value="Gemini">Gemini (May 21st - June 20th)</option>
+                            <option value="Cancer">Cancer (June 21st - July 22nd)</option>
+                            <option value="Leo">Leo (July 23rd - August 22nd)</option>
+                            <option value="Virgo">Virgo (August 23rd - September 22nd)</option>
+                            <option value="Libra">Libra (September 23rd - October 22nd)</option>
+                            <option value="Scorpio">Scorpio (October 23rd - November 22nd)</option>
+                            <option value="Sagittarius">Sagittarius (November 23rd - December 21st)</option>
+                            <option value="Capricorn">Capricorn (December 22nd - January 19th)</option>
+                            <option value="Aquarius">Aquarius (January 20th - February 19th)</option>
+                            <option value="Pisces">Pisces (February 20th - March 20th)</option>
+                    </select>
+                    </fieldset>
+                    <button id="user-details-button" class="btn submit modal-submit box-shadow" type="submit" form="change-user-info" value="Submit">Submit</button>
+                </form>
+            </section>
+        </section>
+    </section>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        //  start the server first in index.js! {npm start}
+        
+        var socket = io();
+        var trending = document.getElementById("current-trending-topics");
+        // const tweets = []
+        socket.on("tweet", (tweet) => {
+            console.log(tweet[0].trends[0].url);
+            for (let i = 0; i < 10; i++) {
+                let tweetData = {
+                    id: tweet[0].trends[i].name,
+                    tweetVolume: tweet[0].trends[i].tweet_volume,
+                    tweetLink: tweet[0].trends[0].url
+                };
+                let tweetElement = document.createElement("li");
+                let tweetLink = document.createElement('a')
+                // tweetElement.innerText = tweetData.id;
+                tweetLink.href = tweetData.tweetLink;
+                console.log(tweetData.tweetLink)
+                tweetLink.innerHTML = tweetData.id
+                tweetElement.appendChild(tweetLink)
+                trending.appendChild(tweetElement);
+                tweetLink.target = "_blank"
+                tweetLink.classList.add("tweet-link")
+            }
+        });
+        </script>
+        <script src = "main.js"></script>
+</body>
+</html>
